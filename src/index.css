@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme {
+  --color-lightgray: rgb(225, 225, 225);
+  --color-coral: rgb(211, 39, 85);
+  --color-muted: rgb(212, 212, 212);
+}
