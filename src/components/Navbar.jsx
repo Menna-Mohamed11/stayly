@@ -1,11 +1,11 @@
 import { Globe, Menu, Sofa, Landmark, Volleyball, Toolbox, Search } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo1.jpeg';
 
 export function Navbar() {
     return(
         <nav className="border-b border-[#c8c5c5] bg-[#f6f6f6] ">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-                <img src={logo} className="h-16 w-auto" />
+                <img src={logo} className="h-22 w-auto" />
                 <div className="flex items-center mx-auto gap-8">
                     <button className="flex items-center gap-2">
                         <Landmark /> All</button>

@@ -99,7 +99,10 @@ export function Footer() {
                 <p className="text-sm font-medium">Minneapolis</p>
                 <p className="text-sm font-medium text-mutedark">Apartment rentals</p>
             </a>
-            
+        </div>
+        
+            {/* Credits 2 */}
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-3 px-10">
             {/* Support */}
             <div>
                 <h3 className="mb-4 mt-15 font-semibold">Support</h3>
@@ -204,7 +207,7 @@ export function Footer() {
                 </div>
 
             </div>
-        </div>
+    </div>
       </section>
 
     </footer>
