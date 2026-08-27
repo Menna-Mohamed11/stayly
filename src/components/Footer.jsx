@@ -1,5 +1,8 @@
+import { useState } from 'react';
 
 export function Footer() {
+    const [activeCategory, setActiveCategory] = useState("Popular");
+
     return(
     <footer>
         
@@ -7,31 +10,36 @@ export function Footer() {
             Inspiration for future getaways
         </h2>
       {/* Categories */}
-      <div className="flex over-flow-x-auto border-b border-[#c8c5c5] justify-between px-10 mt-3">
-          <a className="shrink-0 border-b-2 pb-4 text-sm font-medium">
-            Popular
-          </a>
+<div className="flex overflow-x-auto border-b border-[#c8c5c5] justify-between px-10 mt-3">
 
-          <a className="shrink-0 pb-4 text-sm text-gray-500">
-            Arts & Culture
-          </a>
+    {["Popular", "Arts & Culture", "Outdoors", "Mountains", "Beach", "Things to do"].map((category) => (
+        <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`group relative shrink-0 pb-4 text-sm cursor-pointer transition-all duration-200
+                ${
+                    activeCategory === category
+                        ? "font-semibold text-black"
+                        : "font-medium text-gray-500 hover:font-semibold hover:text-black"
+                }
+            `}
+        >
+            {category}
 
-          <a className="shrink-0 pb-4 text-sm text-gray-500">
-            Outdoors
-          </a>
+            <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-black transition-all duration-300 ease-out
+                    ${
+                        activeCategory === category
+                            ? "w-full"
+                            : "w-0"
+                    }
+                `}
+            ></span>
+            
+        </button>
+    ))}
 
-          <a className="shrink-0 pb-4 text-sm text-gray-500">
-            Mountains
-          </a>
-
-          <a className="shrink-0 pb-4 text-sm text-gray-500">
-            Beach
-          </a>
-
-          <a className="shrink-0 pb-4 text-sm text-gray-500">
-            Things to do
-          </a>
-      </div>
+</div>
 
       {/* Grid */}
       <section>
@@ -100,7 +108,7 @@ export function Footer() {
                 <p className="text-sm font-medium text-mutedark">Apartment rentals</p>
             </a>
         </div>
-        
+
             {/* Credits 2 */}
             <div className="grid grid-cols-2 gap-8 md:grid-cols-3 px-10">
             {/* Support */}
