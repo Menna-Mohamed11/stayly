@@ -1,23 +1,22 @@
-import img1 from '../assets/cards/1.avif';
-
-export function PropertyCard() {
+export function PropertyCard({property}) {
     return(
-        <div className="cursor-pointer">
+        <div className="overflow-hidden rounded-2xl cursor-pointer">
 
-            <img src={img1} className="aspect-square h-50 rounded-2xl object-cover"/>
+            <img src={property.image} 
+            className="aspect-square h-50 rounded-2xl object-cover transition-transform duration-300 ease-out hover:scale-105"/>
 
             <div className='mt-3'>
                 <div className='flex justify-between'>
                     <h2 className='font-medium'> 
-                        Apartment in First new Cairo Qism </h2>
+                        {property.title} </h2>
 
                     
                 </div>
 
                 <p className='text-sm text-gray-500'>
-                     Aug 28 - Sep 2 </p>
+                     {property.date}</p>
                 <p className='text-sm text-gray-500'>
-                     $120 for 2 night <span> ★ 4.9 </span>
+                     {property.price} <span> ★ {property.rating} </span>
                 </p>
                 
             </div>
