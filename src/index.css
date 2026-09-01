@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+body{
+  font-family: 'Inter';
+  color: rgb(51, 51, 51);
+}
+
+@theme {
+  --color-lightgray: rgb(225, 225, 225);
+  --color-coral: rgb(211, 39, 85);
+  --color-muted: rgb(212, 212, 212);
+  --color-textdark: rgb(51, 51, 51);
+  --color-mutedark: rgb(157, 157, 157);
+  --color-footer: rgb(70, 70, 70);
+
+}
