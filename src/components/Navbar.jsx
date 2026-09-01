@@ -2,8 +2,12 @@ import { Globe, Menu, Sofa, Landmark, Volleyball, Toolbox, Search } from 'lucide
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo1.jpeg';
 
-export function Navbar() {
+export function Navbar({ onCategoryChange, category, destination, setDestination, date, setDate, guests, setGuests}) {
     const [scrolled, setScrolled] = useState(false);
+
+    const [showWhere, setShowWhere] = useState(false);
+    const [showWhen, setShowWhen] = useState(false);
+    const [showWho, setShowWho] = useState(false);
 
     useEffect(() => {
         const handlescroll = () => {
@@ -37,13 +41,25 @@ export function Navbar() {
                     }
                  `}>
 
-                    <button className="flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer">
+                    <button 
+                    onClick={() => onCategoryChange("All")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
+                        ${category === "All" ? "text-coral" : "" }
+                    `}>
                         <Landmark /> All</button>
-                    <button className='flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer'>
+                    <button 
+                    onClick={() => onCategoryChange("Home")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
+                        ${category === "Home" ? "text-coral" : "" }
+                    `}>
                         <Sofa /> Home</button>
-                    <button className='flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer'> 
+                    <button 
+                    onClick={() => onCategoryChange("Experiences")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
+                        ${category === "Experiences" ? "text-coral" : "" }
+                    `}>
                         <Volleyball /> Experiences</button>
-                    <button className='flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer'> 
+                    <button 
+                    onClick={() => onCategoryChange("Services")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
+                        ${category === "Services" ? "text-coral" : "" }
+                    `}> 
                         <Toolbox /> Services</button>
                 </div>
 
@@ -97,29 +113,155 @@ export function Navbar() {
             {/* Search bar */}
             <div className="mx-auto mb-10 h-18 flex w-full max-w-4xl items-center rounded-full border border-[#c8c5c5] shadow-md">
 
-                <button className="group relative flex-1 px-6 py-3 h-full text-left rounded-full transition-colors duration-200 hover:bg-lightgray ">
-                    <div className="text-xs font-semibold">Where</div>
-                    <div className="text-sm text-gray-500">
-                        Search destinations
+            <div className="relative flex-1 h-full">
+
+                <button
+                    onClick={() => setShowWhere(!showWhere)}
+                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-lightgray"
+                >
+                    <div className="text-xs font-semibold">
+                        Where
                     </div>
-                    <div className="absolute right-0 top-1/2 h-8 -translate-y-1/2 border-l border-[#c8c5c5] group-hover:hidden"></div>
+
+                    <div className="text-sm text-gray-500">
+                        {destination || "Search destinations"}
+                    </div>
+
+                    <div className="absolute right-0 top-1/2 h-8 -translate-y-1/2 border-l border-[#c8c5c5] group-hover:hidden" />
                 </button>
 
-                <button className="group relative flex-1 self-stretch px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-lightgray">
-                    <div className="text-xs font-semibold">When</div>
-                    <div className="text-sm text-gray-500">
-                        Add dates
+                {showWhere && (
+                    <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl bg-white p-3 shadow-lg border">
+
+                        <button
+                            onClick={() => {
+                                setDestination("Cairo");
+                                setShowWhere(false);
+                            }}
+                            className="w-full rounded-xl p-3 text-left hover:bg-gray-100"
+                        >
+                            Cairo
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                setDestination("Alexandria");
+                                setShowWhere(false);
+                            }}
+                            className="w-full rounded-xl p-3 text-left hover:bg-gray-100"
+                        >
+                            Alexandria
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                setDestination("New Cairo");
+                                setShowWhere(false);
+                            }}
+                            className="w-full rounded-xl p-3 text-left hover:bg-gray-100"
+                        >
+                            New Cairo
+                        </button>
+
                     </div>
-                <div className='absolute right-0 top-1/2 h-8 border-l -translate-y-1/2 border-[#c8c5c5] group-hover:hidden'></div>
+                )}
+
+            </div>
+
+            <div className="relative flex-1 h-full">
+
+                <button
+                    onClick={() => {
+                        setShowWhen(!showWhen);
+                        setShowWhere(false);
+                    }}
+                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-lightgray"
+                >
+                    <div className="text-xs font-semibold">
+                        When
+                    </div>
+
+                    <div className="text-sm text-gray-500">
+                        {date || "Add dates"}
+                    </div>
+
+                    <div className="absolute right-0 top-1/2 h-8 border-l -translate-y-1/2 border-[#c8c5c5] group-hover:hidden" />
                 </button>
 
-                <button className="group relative flex-1 px-6 py-3 text-left h-full rounded-full transition-colors duration-200 hover:bg-lightgray ">
-                    <div className="text-xs font-semibold">Who</div>
-                    <div className="text-sm text-gray-500">
-                        Add guests
+                {showWhen && (
+                    <div className="absolute left-0 top-full mt-2 rounded-2xl bg-white p-4 shadow-lg border">
+
+                        <input
+                            type="date"
+                            value={date}
+                            onChange={(e) => {
+                                setDate(e.target.value);
+                                setShowWhen(false);
+                            }}
+                            className="outline-none"
+                        />
+
                     </div>
-                
+                )}
+
+            </div>
+
+            <div className="relative flex-1 h-full">
+
+                <button
+                    onClick={() => {
+                        setShowWho(!showWho);
+                        setShowWhere(false);
+                        setShowWhen(false);
+                    }}
+                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-lightgray"
+                >
+                    <div className="text-xs font-semibold">
+                        Who
+                    </div>
+
+                    <div className="text-sm text-gray-500">
+                        {guests === 0 ? "Add guests" : `${guests} guests`}
+                    </div>
                 </button>
+
+                {showWho && (
+                    <div className="absolute right-0 top-full mt-2 w-64 rounded-2xl bg-white p-5 shadow-lg border">
+
+                        <div className="flex items-center justify-between">
+
+                            <span className="font-medium">
+                                Guests
+                            </span>
+
+                            <div className="flex items-center gap-3">
+
+                                <button
+                                    onClick={() => setGuests(Math.max(0, guests - 1))}
+                                    className="h-8 w-8 rounded-full border hover:bg-gray-100"
+                                >
+                                    −
+                                </button>
+
+                                <span>
+                                    {guests}
+                                </span>
+
+                                <button
+                                    onClick={() => setGuests(guests + 1)}
+                                    className="h-8 w-8 rounded-full border hover:bg-gray-100"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                )}
+
+            </div>
 
                 <button className="m-2 rounded-full bg-coral p-3 text-white transition-all duration-200 hover:brightness-90 cursor-pointer hover:scale-90">
                     <Search />
@@ -130,3 +272,5 @@ export function Navbar() {
 
     );
 }
+
+//date, setDate, guests, setGuests 
