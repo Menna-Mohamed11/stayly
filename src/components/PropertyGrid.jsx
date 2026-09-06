@@ -8,6 +8,7 @@ export function PropertyGrid({ category, destination, searchSubmitted }) {
     const filteredCards = CardProperties.filter((property) => {
         const matchesCategory =
             category === "All" ||
+            category === "Home" ||
             property.category === category;
 
         const matchesDestination =

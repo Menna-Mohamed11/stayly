@@ -52,7 +52,7 @@ export const CardProperties = [
         date: "Sep 12 - Sep 17",
         price: "$165 for 5 nights",
         rating: "4.8" ,
-        category: "Home"
+        category: "Services"
     }, {
         id: 5,
         image: img5,
@@ -68,7 +68,7 @@ export const CardProperties = [
         date: "Sep 21 - Sep 26",
         price: "$280 for 5 nights",
         rating: "4.9",
-        category: "Home"
+        category: "Services"
     }, {
         id: 7,
         image: img7,
@@ -84,7 +84,7 @@ export const CardProperties = [
         date: "Oct 8 - Oct 12",
         price: "$320 for 4 nights",
         rating: "5.0",
-        category: "Home"
+        category: "Services"
     }, {
         id: 9,
         image: img9,
@@ -100,7 +100,7 @@ export const CardProperties = [
         date: "Oct 20 - Oct 25",
         price: "$260 for 5 nights",
         rating: "4.9",
-        category: "Home"
+        category: "Services"
     }, {
         id: 11,
         image: img11,
@@ -112,11 +112,11 @@ export const CardProperties = [
     }, {
         id: 12,
         image: img12,
-        title: "Spacious family home with a garden",
+        title: "Spacious family Services with a garden",
         date: "Nov 1 - Nov 6",
         price: "$230 for 5 nights",
         rating: "4.9",
-        category: "Home"
+        category: "Services"
     }, {
         id: 13,
         image: img13,
@@ -124,7 +124,7 @@ export const CardProperties = [
         date: "Nov 5 - Nov 10",
         price: "$155 for 5 nights",
         rating: "4.8",
-        category: "Home"
+        category: "Services"
     }, {
         id: 14,
         image: img14,
@@ -152,7 +152,7 @@ export const CardProperties = [
     }, {
         id: 17,
         image: img17,
-        title: "Modern home with a private terrace",
+        title: "Modern Services with a private terrace",
         date: "Dec 2 - Dec 7",
         price: "$275 for 5 nights",
         rating: "4.9",
@@ -180,7 +180,7 @@ export const CardProperties = [
         date: "Dec 15 - Dec 20",
         price: "$390 for 5 nights",
         rating: "5.0",
-        category: "Home"
+        category: "Services"
     }
 
 ];
