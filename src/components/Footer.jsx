@@ -4,7 +4,7 @@ export function Footer() {
     const [activeCategory, setActiveCategory] = useState("Popular");
 
     return(
-    <footer className='bg-gray-100 py-6'>
+    <footer className='bg-[#F7F7F7] py-6'>
         
         <h2 className=" max-w-7xl px-6 mt-15 text-xl text-textdark font-bold tracking-wide">
             Inspiration for future getaways

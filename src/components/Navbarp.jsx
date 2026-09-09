@@ -36,7 +36,7 @@ export function Navbar({
     }, []);
 
     return (
-        <nav className="relative z-50 w-full border-b border-gray-200 bg-white">
+        <nav className="relative z-50 w-full border-b border-gray-200 bg-[#F7F7F7] ">
             
             {/* Main Navbar */}
             <div className="mx-auto flex h-24 items-center justify-between px-6 lg:px-12">
