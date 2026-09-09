@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 export function PropertyCard({property}) {
     return(
+        <Link to={`/property/${property.id}`} >
         <div className="overflow-hidden rounded-2xl cursor-pointer">
 
             <img src={property.image} 
@@ -21,5 +24,6 @@ export function PropertyCard({property}) {
                 
             </div>
         </div>
+        </Link>
     );
 }
