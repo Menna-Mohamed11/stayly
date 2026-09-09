@@ -4,9 +4,9 @@ export function Footer() {
     const [activeCategory, setActiveCategory] = useState("Popular");
 
     return(
-    <footer>
+    <footer className='bg-[#F7F7F7] py-6'>
         
-        <h2 className="mx-auto max-w-7xl px-6 mt-15 text-xl text-textdark font-bold tracking-wide">
+        <h2 className=" max-w-7xl px-6 mt-15 text-xl text-textdark font-bold tracking-wide">
             Inspiration for future getaways
         </h2>
       {/* Categories */}
@@ -132,14 +132,14 @@ export function Footer() {
                 <h3 className="mb-4 mt-15 font-semibold">Hosting</h3>
 
                 <div className="space-y-3 text-sm text-footer">
-                    <a href="#" className="block">Airbnb your home</a>
-                    <a href="#" className="block">Airbnb your experience</a>
-                    <a href="#" className="block">Airbnb your service</a>
+                    <a href="#" className="block">Stayly your home</a>
+                    <a href="#" className="block">Stayly your experience</a>
+                    <a href="#" className="block">Stayly your service</a>
                     <a href="#" className="block">AirCover for Hosts</a>
                     <a href="#" className="block">Hosting resources</a>
                     <a href="#" className="block">Community forum</a>
                     <a href="#" className="block">Hosting responsibly</a>
-                    <a href="#" className="block">Airbnb-friendly apartments</a>
+                    <a href="#" className="block">Stayly-friendly apartments</a>
                     <a href="#" className="block">Join a free hosting class</a>
                     <a href="#" className="block">Find a co-host</a>
                     <a href="#" className="block">Refer a host</a>
@@ -148,7 +148,7 @@ export function Footer() {
 
             {/* Airbnb */}
             <div>
-                <h3 className="mb-4 mt-15 font-semibold text-footer">Airbnb</h3>
+                <h3 className="mb-4 mt-15 font-semibold text-footer">Stayly</h3>
 
                 <div className="space-y-3 text-sm">
                     <a href="#" className="block">2026 Summer Release</a>
@@ -156,7 +156,7 @@ export function Footer() {
                     <a href="#" className="block">Careers</a>
                     <a href="#" className="block">Investors</a>
                     <a href="#" className="block">Gift cards</a>
-                    <a href="#" className="block">Airbnb.org emergency stays</a>
+                    <a href="#" className="block">Stayly.org emergency stays</a>
                 </div>
             </div>
 
@@ -167,7 +167,7 @@ export function Footer() {
 
                 {/* Copyright */}
                 <div className="flex flex-wrap items-center gap-2">
-                    <span>© 2026 Airbnb, Inc.</span>
+                    <span>© 2026 Stayly, Inc.</span>
                     <span>·</span>
 
                     <a href="#" className="hover:underline">

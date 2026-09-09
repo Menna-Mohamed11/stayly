@@ -19,114 +19,119 @@ import img18 from '../assets/cards/18.avif';
 import img19 from '../assets/cards/19.jpeg';
 import img20 from '../assets/cards/20.avif';
 
+import livingroooom1 from '../assets/1/livingroom1.avif';
+import bedroomo2 from '../assets/2/bedroom-2.avif';
+import backyard3 from '../assets/3/backyard3.avif';
+import bedroom4 from '../assets/4/bedroom4.avif';
+
 export const CardProperties = [
 
     // HOME
 
     {
         id: 1,
-        image: img1,
-        title: "Apartment in New Cairo",
+        image: livingroooom1,
+        title: "Shiny 3 Rooms Apartment",
         location: "New Cairo, Egypt",
         date: "Aug 28 - Sep 2",
         price: "$120 for 2 nights",
-        rating: "4.9",
+        rating: "4.97",
         category: "Home",
         section: "Popular homes"
     },
 
     {
         id: 2,
-        image: img2,
-        title: "House in Kauai",
-        location: "Kauai, Hawaii",
+        image: bedroomo2,
+        title: "Private Cozy Studio 5",
+        location: "Cairo, Egypt",
         date: "Sep 3 - Sep 8",
         price: "$180 for 5 nights",
-        rating: "4.8",
+        rating: "4.78",
         category: "Home",
-        section: "Beach getaways"
+        section: "Popular homes"
     },
 
     {
         id: 3,
-        image: img3,
-        title: "Beach house in Ocean City",
+        image: backyard3,
+        title: "Charming 2BR with Private Garden",
         location: "Ocean City, Maryland",
         date: "Sep 10 - Sep 15",
         price: "$220 for 5 nights",
-        rating: "4.9",
+        rating: "4.87",
         category: "Home",
-        section: "Beach getaways"
+        section: "Popular homes"
     },
 
     {
         id: 4,
-        image: img4,
-        title: "Cozy cabin in the mountains",
+        image: bedroom4,
+        title: "Azure 201 Studio | Pool, Garden & Roof - New Cairo",
         location: "Aspen, Colorado",
         date: "Sep 12 - Sep 17",
         price: "$165 for 5 nights",
-        rating: "4.8",
+        rating: "4.99",
+        category: "Home",
+        section: "Popular homes"
+    },
+
+    {
+        id: 5,
+        image: img4,
+        title: "Cozy Maadi Garden Apartment",
+        location: "Cairo, Egypt",
+        date: "Sep 18 - Sep 22",
+        price: "$190 for 4 nights",
+        rating: "4.86",
         category: "Home",
         section: "Mountain getaways"
     },
 
     {
-        id: 5,
-        image: img5,
-        title: "Modern apartment downtown",
-        location: "Cairo, Egypt",
-        date: "Sep 18 - Sep 22",
-        price: "$190 for 4 nights",
-        rating: "4.7",
-        category: "Home",
-        section: "Popular homes"
-    },
-
-    {
-        id: 6,
-        image: img6,
-        title: "Seaside villa",
+        id: 8,
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+        title: "Seaside Corniche Apartment",
         location: "Alexandria, Egypt",
         date: "Sep 21 - Sep 26",
         price: "$280 for 5 nights",
-        rating: "4.9",
+        rating: "4.88",
         category: "Home",
         section: "Beach getaways"
-    },
-
-    {
-        id: 7,
-        image: img7,
-        title: "Traditional coastal house",
-        location: "Santorini, Greece",
-        date: "Oct 2 - Oct 7",
-        price: "$210 for 5 nights",
-        rating: "4.8",
-        category: "Home",
-        section: "Beach getaways"
-    },
-
-    {
-        id: 8,
-        image: img8,
-        title: "Luxury condo with city views",
-        location: "New York, USA",
-        date: "Oct 8 - Oct 12",
-        price: "$320 for 4 nights",
-        rating: "5.0",
-        category: "Home",
-        section: "Popular homes"
     },
 
     {
         id: 9,
-        image: img9,
-        title: "Bright loft in the city center",
+        image: img7,
+        title: "Mediterranean Balcony Home",
+        location: "Santorini, Greece",
+        date: "Oct 2 - Oct 7",
+        price: "$210 for 5 nights",
+        rating: "4.84",
+        category: "Home",
+        section: "Beach getaways"
+    },
+
+    {
+        id: 6,
+        image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
+        title: "Bright Downtown Cairo Loft",
+        location: "New York, USA",
+        date: "Oct 8 - Oct 12",
+        price: "$320 for 4 nights",
+        rating: "4.82",
+        category: "Home",
+        section: "Popular homes"
+    },
+
+    {
+        id: 7,
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
+        title: "Pyramids View Villa",
         location: "Paris, France",
         date: "Oct 14 - Oct 19",
         price: "$175 for 5 nights",
-        rating: "4.8",
+        rating: "4.94",
         category: "Home",
         section: "Popular homes"
     },
@@ -134,11 +139,11 @@ export const CardProperties = [
     {
         id: 10,
         image: img10,
-        title: "Peaceful villa surrounded by nature",
+        title: "Luxury El Gouna Escape",
         location: "Bali, Indonesia",
         date: "Oct 20 - Oct 25",
         price: "$260 for 5 nights",
-        rating: "4.9",
+        rating: "4.96",
         category: "Home",
         section: "Nature getaways"
     },
@@ -146,55 +151,55 @@ export const CardProperties = [
     {
         id: 11,
         image: img11,
-        title: "Stylish studio near the beach",
+        title: "Red Sea Beachfront Apartment",
         location: "Barcelona, Spain",
         date: "Oct 23 - Oct 27",
         price: "$145 for 4 nights",
-        rating: "4.7",
+        rating: "4.93",
         category: "Home",
         section: "Beach getaways"
     },
 
     {
-        id: 12,
-        image: img12,
-        title: "Spacious family home with a garden",
+        id: 13,
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" ,       //pyramids img12
+        title: "Modern Nile View Apartment",
         location: "London, UK",
         date: "Nov 1 - Nov 6",
         price: "$230 for 5 nights",
-        rating: "4.9",
+        rating: "4.91",
         category: "Home",
         section: "Popular homes"
     },
 
     {
-        id: 13,
+        id: 12,
         image: img13,
-        title: "Charming cottage in the countryside",
+        title: "Dahab Blue Lagoon Retreat",
         location: "Yorkshire, UK",
         date: "Nov 5 - Nov 10",
         price: "$155 for 5 nights",
-        rating: "4.8",
+        rating: "4.95",
         category: "Home",
         section: "Nature getaways"
     },
 
     {
-        id: 14,
+        id: 15,
         image: img14,
-        title: "Elegant penthouse overlooking the city",
+        title: "North Coast Summer Villa",
         location: "Dubai, UAE",
         date: "Nov 12 - Nov 16",
         price: "$340 for 4 nights",
-        rating: "5.0",
+        rating: "4.98",
         category: "Home",
-        section: "Popular homes"
+        section: "Beach getaways"
     },
 
     {
-        id: 15,
+        id: 14,
         image: img15,
-        title: "Cozy apartment near the marina",
+        title: "Ain Sokhna Sea View Chalet",
         location: "Nice, France",
         date: "Nov 18 - Nov 23",
         price: "$205 for 5 nights",
@@ -206,7 +211,7 @@ export const CardProperties = [
     {
         id: 16,
         image: img16,
-        title: "Rustic cabin with a mountain view",
+        title: "cabin with a mountain view",
         location: "Banff, Canada",
         date: "Nov 21 - Nov 26",
         price: "$185 for 5 nights",
@@ -218,23 +223,23 @@ export const CardProperties = [
     {
         id: 17,
         image: img17,
-        title: "Modern home with a private terrace",
+        title: "Nubian Riverside Home",
         location: "Lisbon, Portugal",
         date: "Dec 2 - Dec 7",
         price: "$275 for 5 nights",
-        rating: "4.9",
+        rating: "4.93",
         category: "Home",
         section: "Popular homes"
     },
 
     {
         id: 18,
-        image: img18,
-        title: "Relaxing retreat beside the lake",
+        image: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8",
+        title: "Peaceful Fayoum Country House",
         location: "Lake Como, Italy",
         date: "Dec 6 - Dec 11",
         price: "$240 for 5 nights",
-        rating: "4.8",
+        rating: "4.9",
         category: "Home",
         section: "Nature getaways"
     },
@@ -242,11 +247,11 @@ export const CardProperties = [
     {
         id: 19,
         image: img19,
-        title: "Minimalist loft near local attractions",
+        title: "Modern Sheikh Zayed Villa",
         location: "Tokyo, Japan",
         date: "Dec 10 - Dec 14",
         price: "$160 for 4 nights",
-        rating: "4.7",
+        rating: "4.92",
         category: "Home",
         section: "Popular homes"
     },
