@@ -5,6 +5,7 @@ import Confirmation from "./pages/Confirmation";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/profile";
+import Wishlist from "./pages/Wishlist";
 
 import "./App.css";
 
@@ -33,6 +34,10 @@ function App() {
         <Route
           path="/profile"
           element={<Profile />}
+        />
+        <Route 
+        path="/wishlist" 
+        element={<Wishlist />} 
         />
 
       </Routes>
