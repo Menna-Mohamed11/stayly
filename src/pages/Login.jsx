@@ -32,7 +32,7 @@ function Login() {
   return (
     <div className="min-h-screen bg-black/40 flex items-center justify-center px-4">
 
-      <div className="w-full max-w-[520px] bg-white rounded-3xl shadow-2xl p-8 relative">
+      <div className="w-full max-w-520px bg-white rounded-3xl shadow-2xl p-8 relative">
 
         {/* Close */}
         <button

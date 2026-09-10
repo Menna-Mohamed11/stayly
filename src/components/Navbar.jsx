@@ -1,5 +1,6 @@
 import { Globe, Menu, Sofa, Landmark, Volleyball, Toolbox, Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import logo from '../assets/logo1.jpeg';
 
 export function Navbar({ onCategoryChange, category, destination, setDestination, date, setDate, guests, setGuests}) {
@@ -22,10 +23,10 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
     }, []);                     //[] -> dependency array, only runs once
 
     return(
-        <nav className="border-b border-[#c8c5c5] bg-[#f6f6f6] pt-32">
+        <nav className="border-b border-[#c8c5c5] bg-[#F7F7F7] pt-32">
             <div 
                 className={`fixed left-0 right-0 top-0 z-50 mx-auto flex items-center justify-between px-6
-                    bg-[#f6f6f6] transition-all duration-500 ease-out
+                    bg-[#F7F7F7] transition-all duration-500 ease-out
                 ${
                     scrolled 
                         ? "py-3 shadow-sm"
@@ -92,10 +93,12 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                     <button className="font-medium">
                         Add guests
                     </button>
-
-                    <button className="flex h-9 w-9 items-center justify-center rounded-full bg-coral text-white">
+                    <Link 
+                    to={`/search`}>
+                    <button className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF5A5F] text-white">
                         <Search size={18} />
                     </button>
+                    </Link>
                 </div>
             
 
@@ -262,10 +265,12 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                 )}
 
             </div>
-
-                <button className="m-2 rounded-full bg-coral p-3 text-white transition-all duration-200 hover:brightness-90 cursor-pointer hover:scale-90">
+                <Link 
+                    to={`/search`}>
+                <button className="m-2 rounded-full bg-[#FF5A5F] p-3 text-white transition-all duration-200 hover:brightness-90 cursor-pointer hover:scale-90">
                     <Search />
                 </button>
+                </Link>
 
             </div>
         </nav>

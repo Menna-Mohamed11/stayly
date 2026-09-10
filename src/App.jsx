@@ -7,14 +7,13 @@ import Register from "./pages/Register";
 import Profile from "./pages/profile";
 import Wishlist from "./pages/Wishlist";
 
-import "./App.css";
+
 import { useState } from 'react'
-import { BrowserRouter,Routes, Route } from "react-router-dom";
+
 
 import PropertyDetails from './pages/PropertyDetails/PropertyDetails'
 import Photos from './pages/PropertyDetails/Photos';
-import Checkout from "./pages/Checkout";
-import Confirmation from "./pages/Confirmation";
+
 
 import Home from './pages/Home';
 
