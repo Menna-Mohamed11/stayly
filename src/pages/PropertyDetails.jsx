@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 //import CardProperties from "../data/CardProperties";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
-import { Navbar } from "../../components/Navbar";
-import Reviews from "./Reviews";
-import Location from "./Location";
-import { Footer } from "../../components/Footer";
-import { useParams } from "react-router-dom";  
+import { Navbar } from "../components/Navbar";
+//import Reviews from "./Reviews";
+//import Location from "./Location";
+import { Footer } from "../components/Footer";
+
 import { CardProperties } from "../data/CardProperties";
 import {
   Wifi,
@@ -677,17 +677,20 @@ function PropertyDetails() {
       </div>
 
       {/* Reviews */}
+      {/*
       <div id="reviews" className="scroll-mt-20">
         <Reviews property={property} />
       </div>
 
-      {/* Location */}
+      
       <div id="location" className="scroll-mt-20">
         <Location property={property} />
-      </div>
+      </div> */}
+      
       <Footer></Footer>
 
-    </div>
+    </div> 
+      
   );
 }
 

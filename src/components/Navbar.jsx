@@ -105,11 +105,11 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
             <span className='hidden md:block whitespace-nowrap shrink-0'> 
                 Become a host </span>
 
-        <button className="bg-[#F7F7F7] flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-[#FC8A8F] cursor-pointer">
+        <button className="bg-[#F7F7F7] flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-[#D9D9D9] cursor-pointer">
              <Globe />
         </button>
 
-          <button className="bg-[#F7F7F7] flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-[#FC8A8F] cursor-pointer">
+          <button className="bg-[#F7F7F7] flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-[#D9D9D9] cursor-pointer">
             <Menu />
           </button>
         </div>
@@ -122,7 +122,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
 
                 <button
                     onClick={() => setShowWhere(!showWhere)}
-                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-[#F7F7F7]"
+                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-[#D9D9D9]"
                 >
                     <div className="text-xs font-semibold">
                         Where
@@ -143,7 +143,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                                 setDestination("Cairo");
                                 setShowWhere(false);
                             }}
-                            className="w-full rounded-xl p-3 text-left hover:bg-[#F7F7F7]"
+                            className="w-full rounded-xl p-3 text-left hover:bg-[#D9D9D9]"
                         >
                             Cairo
                         </button>
@@ -153,7 +153,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                                 setDestination("Alexandria");
                                 setShowWhere(false);
                             }}
-                            className="w-full rounded-xl p-3 text-left hover:bg-[#F7F7F7]"
+                            className="w-full rounded-xl p-3 text-left hover:bg-[#D9D9D9]"
                         >
                             Alexandria
                         </button>
@@ -163,7 +163,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                                 setDestination("New Cairo");
                                 setShowWhere(false);
                             }}
-                            className="w-full rounded-xl p-3 text-left hover:bg-[#F7F7F7]"
+                            className="w-full rounded-xl p-3 text-left hover:bg-[#D9D9D9]"
                         >
                             New Cairo
                         </button>
@@ -180,7 +180,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                         setShowWhen(!showWhen);
                         setShowWhere(false);
                     }}
-                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-[#F7F7F7]"
+                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-[#D9D9D9]"
                 >
                     <div className="text-xs font-semibold">
                         When
@@ -219,7 +219,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                         setShowWhere(false);
                         setShowWhen(false);
                     }}
-                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-[#F7F7F7]"
+                    className="group relative w-full h-full px-6 py-3 text-left rounded-full transition-colors duration-200 hover:bg-[#D9D9D9]"
                 >
                     <div className="text-xs font-semibold">
                         Who
@@ -243,7 +243,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
 
                                 <button
                                     onClick={() => setGuests(Math.max(0, guests - 1))}
-                                    className="h-8 w-8 rounded-full border hover:bg-[#F7F7F7]"
+                                    className="h-8 w-8 rounded-full border hover:bg-[#D9D9D9]"
                                 >
                                     −
                                 </button>
@@ -254,7 +254,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
 
                                 <button
                                     onClick={() => setGuests(guests + 1)}
-                                    className="h-8 w-8 rounded-full border hover:bg-[#F7F7F7]"
+                                    className="h-8 w-8 rounded-full border hover:bg-[#D9D9D9]"
                                 >
                                     +
                                 </button>

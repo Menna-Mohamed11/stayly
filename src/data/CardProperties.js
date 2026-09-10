@@ -21,394 +21,988 @@ import img20 from '../assets/cards/20.avif';
 
 export const CardProperties = [
 
+    // =========================
     // HOME
+    // =========================
 
     {
         id: 1,
         image: img1,
+        images: [img1, img2, img3, img4, img5],
         title: "Apartment in New Cairo",
         location: "New Cairo, Egypt",
         date: "Aug 28 - Sep 2",
-        price: "$120 for 2 nights",
+        price: 120,
         rating: "4.9",
+        reviews: 128,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Ahmed",
+        hostYears: 5,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        bathrooms: 1,
+        description: "A comfortable modern apartment in New Cairo, perfect for a relaxing stay with easy access to restaurants, shops, and local attractions.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Kitchen",
+            "Free parking on premises",
+            "Washing machine",
+            "Coffee maker",
+            "Essentials"
+        ]
     },
 
     {
         id: 2,
         image: img2,
+        images: [img2, img3, img4, img5, img6],
         title: "House in Kauai",
         location: "Kauai, Hawaii",
         date: "Sep 3 - Sep 8",
-        price: "$180 for 5 nights",
+        price: 180,
         rating: "4.8",
+        reviews: 94,
         category: "Home",
-        section: "Beach getaways"
+        section: "Beach getaways",
+        host: "Maya",
+        hostYears: 7,
+        guests: 6,
+        bedrooms: 3,
+        beds: 4,
+        bathrooms: 2,
+        description: "A peaceful island home surrounded by tropical scenery and close to beautiful beaches.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Kitchen",
+            "Swimming pool",
+            "Free parking on premises",
+            "BBQ area",
+            "Essentials"
+        ]
     },
 
     {
         id: 3,
         image: img3,
+        images: [img3, img4, img5, img6, img7],
         title: "Beach house in Ocean City",
         location: "Ocean City, Maryland",
         date: "Sep 10 - Sep 15",
-        price: "$220 for 5 nights",
+        price: 220,
         rating: "4.9",
+        reviews: 156,
         category: "Home",
-        section: "Beach getaways"
+        section: "Beach getaways",
+        host: "James",
+        hostYears: 6,
+        guests: 8,
+        bedrooms: 4,
+        beds: 5,
+        bathrooms: 2,
+        description: "A bright beach house ideal for families and groups looking for a relaxing coastal getaway.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Kitchen",
+            "Swimming pool",
+            "Free parking on premises",
+            "BBQ area",
+            "Washing machine"
+        ]
     },
 
     {
         id: 4,
         image: img4,
+        images: [img4, img5, img6, img7, img8],
         title: "Cozy cabin in the mountains",
         location: "Aspen, Colorado",
         date: "Sep 12 - Sep 17",
-        price: "$165 for 5 nights",
+        price: 165,
         rating: "4.8",
+        reviews: 87,
         category: "Home",
-        section: "Mountain getaways"
+        section: "Mountain getaways",
+        host: "Daniel",
+        hostYears: 8,
+        guests: 5,
+        bedrooms: 2,
+        beds: 3,
+        bathrooms: 2,
+        description: "A cozy mountain cabin with beautiful views, a warm fireplace, and plenty of space to relax.",
+        amenities: [
+            "WiFi",
+            "Heating",
+            "Fireplace",
+            "Mountain view",
+            "Kitchen",
+            "Free parking on premises",
+            "TV",
+            "Essentials"
+        ]
     },
 
     {
         id: 5,
         image: img5,
+        images: [img5, img6, img7, img8, img9],
         title: "Modern apartment downtown",
         location: "Cairo, Egypt",
         date: "Sep 18 - Sep 22",
-        price: "$190 for 4 nights",
+        price: 190,
         rating: "4.7",
+        reviews: 112,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Omar",
+        hostYears: 4,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        bathrooms: 1,
+        description: "A stylish apartment in central Cairo, offering modern comfort and convenient access to the city.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Kitchen",
+            "Workspace",
+            "Washing machine",
+            "Coffee maker",
+            "Essentials"
+        ]
     },
 
     {
         id: 6,
         image: img6,
+        images: [img6, img7, img8, img9, img10],
         title: "Seaside villa",
         location: "Alexandria, Egypt",
         date: "Sep 21 - Sep 26",
-        price: "$280 for 5 nights",
+        price: 280,
         rating: "4.9",
+        reviews: 143,
         category: "Home",
-        section: "Beach getaways"
+        section: "Beach getaways",
+        host: "Nour",
+        hostYears: 6,
+        guests: 8,
+        bedrooms: 4,
+        beds: 5,
+        bathrooms: 3,
+        description: "A spacious seaside villa with beautiful ocean views and a private pool.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Private pool",
+            "Kitchen",
+            "BBQ area",
+            "Free parking on premises",
+            "Washing machine"
+        ]
     },
 
     {
         id: 7,
         image: img7,
+        images: [img7, img8, img9, img10, img11],
         title: "Traditional coastal house",
         location: "Santorini, Greece",
         date: "Oct 2 - Oct 7",
-        price: "$210 for 5 nights",
+        price: 210,
         rating: "4.8",
+        reviews: 101,
         category: "Home",
-        section: "Beach getaways"
+        section: "Beach getaways",
+        host: "Elena",
+        hostYears: 9,
+        guests: 5,
+        bedrooms: 2,
+        beds: 3,
+        bathrooms: 2,
+        description: "A charming traditional home with coastal views and a peaceful atmosphere in Santorini.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "Kitchen",
+            "TV",
+            "Mountain view",
+            "Essentials",
+            "Hair dryer",
+            "Coffee maker"
+        ]
     },
 
     {
         id: 8,
         image: img8,
+        images: [img8, img9, img10, img11, img12],
         title: "Luxury condo with city views",
         location: "New York, USA",
         date: "Oct 8 - Oct 12",
-        price: "$320 for 4 nights",
+        price: 320,
         rating: "5.0",
+        reviews: 203,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Michael",
+        hostYears: 10,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        bathrooms: 2,
+        description: "A luxurious city condo with panoramic views and modern amenities in the heart of New York.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Workspace",
+            "Gym",
+            "Kitchen",
+            "Washing machine",
+            "Essentials"
+        ]
     },
 
     {
         id: 9,
         image: img9,
+        images: [img9, img10, img11, img12, img13],
         title: "Bright loft in the city center",
         location: "Paris, France",
         date: "Oct 14 - Oct 19",
-        price: "$175 for 5 nights",
+        price: 175,
         rating: "4.8",
+        reviews: 119,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Claire",
+        hostYears: 5,
+        guests: 3,
+        bedrooms: 1,
+        beds: 2,
+        bathrooms: 1,
+        description: "A bright Parisian loft located close to cafes, museums, shops, and major attractions.",
+        amenities: [
+            "WiFi",
+            "Heating",
+            "TV",
+            "Kitchen",
+            "Coffee maker",
+            "Hair dryer",
+            "Essentials",
+            "Workspace"
+        ]
     },
 
     {
         id: 10,
         image: img10,
+        images: [img10, img11, img12, img13, img14],
         title: "Peaceful villa surrounded by nature",
         location: "Bali, Indonesia",
         date: "Oct 20 - Oct 25",
-        price: "$260 for 5 nights",
+        price: 260,
         rating: "4.9",
+        reviews: 178,
         category: "Home",
-        section: "Nature getaways"
+        section: "Nature getaways",
+        host: "Putri",
+        hostYears: 8,
+        guests: 6,
+        bedrooms: 3,
+        beds: 3,
+        bathrooms: 2,
+        description: "A peaceful tropical villa surrounded by greenery, offering a quiet escape in Bali.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "Private pool",
+            "Kitchen",
+            "TV",
+            "Free parking on premises",
+            "BBQ area",
+            "Essentials"
+        ]
     },
 
     {
         id: 11,
         image: img11,
+        images: [img11, img12, img13, img14, img15],
         title: "Stylish studio near the beach",
         location: "Barcelona, Spain",
         date: "Oct 23 - Oct 27",
-        price: "$145 for 4 nights",
+        price: 145,
         rating: "4.7",
+        reviews: 91,
         category: "Home",
-        section: "Beach getaways"
+        section: "Beach getaways",
+        host: "Lucia",
+        hostYears: 4,
+        guests: 2,
+        bedrooms: 1,
+        beds: 1,
+        bathrooms: 1,
+        description: "A stylish studio near the beach with everything needed for a comfortable city break.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Kitchen",
+            "Coffee maker",
+            "Hair dryer",
+            "Essentials",
+            "Washing machine"
+        ]
     },
 
     {
         id: 12,
         image: img12,
+        images: [img12, img13, img14, img15, img16],
         title: "Spacious family home with a garden",
         location: "London, UK",
         date: "Nov 1 - Nov 6",
-        price: "$230 for 5 nights",
+        price: 230,
         rating: "4.9",
+        reviews: 164,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Oliver",
+        hostYears: 7,
+        guests: 7,
+        bedrooms: 4,
+        beds: 5,
+        bathrooms: 2,
+        description: "A spacious family home with a private garden in a peaceful London neighborhood.",
+        amenities: [
+            "WiFi",
+            "Heating",
+            "Kitchen",
+            "TV",
+            "Washing machine",
+            "Free parking on premises",
+            "Family friendly",
+            "Essentials"
+        ]
     },
 
     {
         id: 13,
         image: img13,
+        images: [img13, img14, img15, img16, img17],
         title: "Charming cottage in the countryside",
         location: "Yorkshire, UK",
         date: "Nov 5 - Nov 10",
-        price: "$155 for 5 nights",
+        price: 155,
         rating: "4.8",
+        reviews: 82,
         category: "Home",
-        section: "Nature getaways"
+        section: "Nature getaways",
+        host: "Emma",
+        hostYears: 6,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        bathrooms: 1,
+        description: "A charming countryside cottage surrounded by peaceful landscapes and fresh air.",
+        amenities: [
+            "WiFi",
+            "Heating",
+            "Fireplace",
+            "Kitchen",
+            "Free parking on premises",
+            "TV",
+            "Essentials",
+            "Hair dryer"
+        ]
     },
 
     {
         id: 14,
         image: img14,
+        images: [img14, img15, img16, img17, img18],
         title: "Elegant penthouse overlooking the city",
         location: "Dubai, UAE",
         date: "Nov 12 - Nov 16",
-        price: "$340 for 4 nights",
+        price: 340,
         rating: "5.0",
+        reviews: 211,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Layla",
+        hostYears: 9,
+        guests: 6,
+        bedrooms: 3,
+        beds: 3,
+        bathrooms: 3,
+        description: "An elegant penthouse with spectacular city views, spacious rooms, and premium amenities.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Gym",
+            "Swimming pool",
+            "Kitchen",
+            "Workspace",
+            "Security"
+        ]
     },
 
     {
         id: 15,
         image: img15,
+        images: [img15, img16, img17, img18, img19],
         title: "Cozy apartment near the marina",
         location: "Nice, France",
         date: "Nov 18 - Nov 23",
-        price: "$205 for 5 nights",
+        price: 205,
         rating: "4.9",
+        reviews: 136,
         category: "Home",
-        section: "Beach getaways"
+        section: "Beach getaways",
+        host: "Sophie",
+        hostYears: 5,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        bathrooms: 1,
+        description: "A cozy apartment near the marina, perfect for exploring the French Riviera.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "Kitchen",
+            "TV",
+            "Coffee maker",
+            "Hair dryer",
+            "Essentials",
+            "Washing machine"
+        ]
     },
 
     {
         id: 16,
         image: img16,
+        images: [img16, img17, img18, img19, img20],
         title: "Rustic cabin with a mountain view",
         location: "Banff, Canada",
         date: "Nov 21 - Nov 26",
-        price: "$185 for 5 nights",
+        price: 185,
         rating: "4.8",
+        reviews: 105,
         category: "Home",
-        section: "Mountain getaways"
+        section: "Mountain getaways",
+        host: "Liam",
+        hostYears: 8,
+        guests: 5,
+        bedrooms: 2,
+        beds: 3,
+        bathrooms: 2,
+        description: "A rustic cabin surrounded by mountains, perfect for enjoying nature and quiet evenings.",
+        amenities: [
+            "WiFi",
+            "Heating",
+            "Fireplace",
+            "Mountain view",
+            "Kitchen",
+            "Free parking on premises",
+            "TV",
+            "Essentials"
+        ]
     },
 
     {
         id: 17,
         image: img17,
+        images: [img17, img18, img19, img20, img1],
         title: "Modern home with a private terrace",
         location: "Lisbon, Portugal",
         date: "Dec 2 - Dec 7",
-        price: "$275 for 5 nights",
+        price: 275,
         rating: "4.9",
+        reviews: 149,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Miguel",
+        hostYears: 7,
+        guests: 5,
+        bedrooms: 2,
+        beds: 3,
+        bathrooms: 2,
+        description: "A modern Lisbon home with a private terrace and easy access to local attractions.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Kitchen",
+            "Workspace",
+            "Coffee maker",
+            "Washing machine",
+            "Essentials"
+        ]
     },
 
     {
         id: 18,
         image: img18,
+        images: [img18, img19, img20, img1, img2],
         title: "Relaxing retreat beside the lake",
         location: "Lake Como, Italy",
         date: "Dec 6 - Dec 11",
-        price: "$240 for 5 nights",
+        price: 240,
         rating: "4.8",
+        reviews: 97,
         category: "Home",
-        section: "Nature getaways"
+        section: "Nature getaways",
+        host: "Marco",
+        hostYears: 6,
+        guests: 4,
+        bedrooms: 2,
+        beds: 2,
+        bathrooms: 2,
+        description: "A relaxing lakeside retreat with beautiful views and a peaceful atmosphere.",
+        amenities: [
+            "WiFi",
+            "Heating",
+            "TV",
+            "Kitchen",
+            "Mountain view",
+            "Free parking on premises",
+            "Coffee maker",
+            "Essentials"
+        ]
     },
 
     {
         id: 19,
         image: img19,
+        images: [img19, img20, img1, img2, img3],
         title: "Minimalist loft near local attractions",
         location: "Tokyo, Japan",
         date: "Dec 10 - Dec 14",
-        price: "$160 for 4 nights",
+        price: 160,
         rating: "4.7",
+        reviews: 123,
         category: "Home",
-        section: "Popular homes"
+        section: "Popular homes",
+        host: "Hana",
+        hostYears: 5,
+        guests: 3,
+        bedrooms: 1,
+        beds: 2,
+        bathrooms: 1,
+        description: "A minimalist Tokyo loft in a convenient location near restaurants, shops, and attractions.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "TV",
+            "Kitchen",
+            "Workspace",
+            "Washing machine",
+            "Hair dryer",
+            "Essentials"
+        ]
     },
 
     {
         id: 20,
         image: img20,
+        images: [img20, img1, img2, img3, img4],
         title: "Luxury villa with an ocean view",
         location: "Maldives",
         date: "Dec 15 - Dec 20",
-        price: "$390 for 5 nights",
+        price: 390,
         rating: "5.0",
+        reviews: 246,
         category: "Home",
-        section: "Beach getaways"
+        section: "Beach getaways",
+        host: "Amira",
+        hostYears: 10,
+        guests: 6,
+        bedrooms: 3,
+        beds: 3,
+        bathrooms: 3,
+        description: "A luxurious island villa with stunning ocean views and everything needed for a relaxing escape.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "Private pool",
+            "Kitchen",
+            "TV",
+            "Swimming pool",
+            "Coffee maker",
+            "Essentials"
+        ]
     },
 
+
+    // =========================
     // EXPERIENCES
+    // =========================
 
     {
         id: 21,
         image: img8,
+        images: [img8, img9, img10, img11, img12],
         title: "Explore New York City",
         location: "New York, USA",
         date: "Oct 8 - Oct 12",
-        price: "$85 per person",
+        price: 85,
         rating: "5.0",
+        reviews: 187,
         category: "Experiences",
-        section: "Popular experiences"
+        section: "Popular experiences",
+        host: "Chris",
+        hostYears: 6,
+        guests: 8,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Explore some of New York City's most famous landmarks and discover hidden local spots with an experienced guide.",
+        amenities: [
+            "WiFi",
+            "Essentials",
+            "Security",
+            "Family friendly",
+            "Accessible",
+            "Coffee maker"
+        ]
     },
 
     {
         id: 22,
         image: img9,
+        images: [img9, img10, img11, img12, img13],
         title: "Paris Art & Culture Tour",
         location: "Paris, France",
         date: "Oct 14 - Oct 19",
-        price: "$70 per person",
+        price: 70,
         rating: "4.8",
+        reviews: 143,
         category: "Experiences",
-        section: "Art & culture"
+        section: "Art & culture",
+        host: "Claire",
+        hostYears: 8,
+        guests: 6,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Discover Paris through its art, architecture, history, and culture with a knowledgeable local guide.",
+        amenities: [
+            "Essentials",
+            "Family friendly",
+            "Accessible",
+            "Security",
+            "WiFi",
+            "Coffee maker"
+        ]
     },
 
     {
         id: 23,
         image: img10,
+        images: [img10, img11, img12, img13, img14],
         title: "Bali Jungle Adventure",
         location: "Bali, Indonesia",
         date: "Oct 20 - Oct 25",
-        price: "$95 per person",
+        price: 95,
         rating: "4.9",
+        reviews: 165,
         category: "Experiences",
-        section: "Outdoor adventures"
+        section: "Outdoor adventures",
+        host: "Wayan",
+        hostYears: 7,
+        guests: 8,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Enjoy an exciting guided adventure through the beautiful landscapes and jungle of Bali.",
+        amenities: [
+            "Essentials",
+            "Security",
+            "Family friendly",
+            "Accessible",
+            "WiFi",
+            "Free parking on premises"
+        ]
     },
 
     {
         id: 24,
         image: img11,
+        images: [img11, img12, img13, img14, img15],
         title: "Barcelona Food Tour",
         location: "Barcelona, Spain",
         date: "Oct 23 - Oct 27",
-        price: "$65 per person",
+        price: 65,
         rating: "4.7",
+        reviews: 118,
         category: "Experiences",
-        section: "Food & drink"
+        section: "Food & drink",
+        host: "Carlos",
+        hostYears: 5,
+        guests: 6,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Taste local dishes and discover Barcelona's food culture with a friendly local guide.",
+        amenities: [
+            "Kitchen",
+            "Essentials",
+            "Family friendly",
+            "Accessible",
+            "WiFi",
+            "Coffee maker"
+        ]
     },
 
     {
         id: 25,
         image: img13,
+        images: [img13, img14, img15, img16, img17],
         title: "Yorkshire Countryside Walk",
         location: "Yorkshire, UK",
         date: "Nov 5 - Nov 10",
-        price: "$75 per person",
+        price: 75,
         rating: "4.8",
+        reviews: 89,
         category: "Experiences",
-        section: "Outdoor adventures"
+        section: "Outdoor adventures",
+        host: "James",
+        hostYears: 6,
+        guests: 8,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Take a peaceful walk through the beautiful Yorkshire countryside with a local guide.",
+        amenities: [
+            "Essentials",
+            "Family friendly",
+            "Security",
+            "Accessible",
+            "Free parking on premises",
+            "WiFi"
+        ]
     },
 
     {
         id: 26,
         image: img14,
+        images: [img14, img15, img16, img17, img18],
         title: "Dubai City Discovery",
         location: "Dubai, UAE",
         date: "Nov 12 - Nov 16",
-        price: "$90 per person",
+        price: 90,
         rating: "5.0",
+        reviews: 201,
         category: "Experiences",
-        section: "Popular experiences"
+        section: "Popular experiences",
+        host: "Khalid",
+        hostYears: 9,
+        guests: 8,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Discover Dubai's famous landmarks, modern architecture, and local culture with an experienced guide.",
+        amenities: [
+            "Essentials",
+            "Security",
+            "Family friendly",
+            "Accessible",
+            "WiFi",
+            "Free parking on premises"
+        ]
     },
 
+
+    // =========================
     // SERVICES
+    // =========================
 
     {
         id: 27,
         image: img6,
+        images: [img6, img7, img8, img9, img10],
         title: "Private Yacht Service",
         location: "Alexandria, Egypt",
         date: "Sep 21 - Sep 26",
-        price: "$150 per service",
+        price: 150,
         rating: "4.9",
+        reviews: 76,
         category: "Services",
-        section: "Travel services"
+        section: "Travel services",
+        host: "Youssef",
+        hostYears: 7,
+        guests: 8,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Enjoy a private yacht service along the Alexandria coast with a comfortable and relaxing experience.",
+        amenities: [
+            "WiFi",
+            "Essentials",
+            "Security",
+            "Family friendly",
+            "Accessible",
+            "Coffee maker"
+        ]
     },
 
     {
         id: 28,
         image: img16,
+        images: [img16, img17, img18, img19, img20],
         title: "Mountain Guide Service",
         location: "Banff, Canada",
         date: "Nov 21 - Nov 26",
-        price: "$120 per service",
+        price: 120,
         rating: "4.8",
+        reviews: 68,
         category: "Services",
-        section: "Travel services"
+        section: "Travel services",
+        host: "Noah",
+        hostYears: 8,
+        guests: 6,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "A professional mountain guide service designed to help you safely explore the beautiful Banff region.",
+        amenities: [
+            "Security",
+            "Essentials",
+            "Free parking on premises",
+            "Family friendly",
+            "Accessible",
+            "WiFi"
+        ]
     },
 
     {
         id: 29,
         image: img17,
+        images: [img17, img18, img19, img20, img1],
         title: "Home Setup Service",
         location: "Lisbon, Portugal",
         date: "Dec 2 - Dec 7",
-        price: "$100 per service",
+        price: 100,
         rating: "4.9",
+        reviews: 54,
         category: "Services",
-        section: "Home services"
+        section: "Home services",
+        host: "Miguel",
+        hostYears: 6,
+        guests: 4,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "A convenient home setup service helping guests prepare their space for a comfortable stay.",
+        amenities: [
+            "Essentials",
+            "Security",
+            "WiFi",
+            "Kitchen",
+            "Workspace",
+            "Accessible"
+        ]
     },
 
     {
         id: 30,
         image: img18,
+        images: [img18, img19, img20, img1, img2],
         title: "Lakeside Wellness Service",
         location: "Lake Como, Italy",
         date: "Dec 6 - Dec 11",
-        price: "$130 per service",
+        price: 130,
         rating: "4.8",
+        reviews: 61,
         category: "Services",
-        section: "Wellness"
+        section: "Wellness",
+        host: "Sofia",
+        hostYears: 7,
+        guests: 4,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "A relaxing wellness service beside Lake Como designed to help guests unwind and recharge.",
+        amenities: [
+            "Essentials",
+            "Security",
+            "Accessible",
+            "Family friendly",
+            "Coffee maker",
+            "WiFi"
+        ]
     },
 
     {
         id: 31,
         image: img19,
+        images: [img19, img20, img1, img2, img3],
         title: "Private Local Guide",
         location: "Tokyo, Japan",
         date: "Dec 10 - Dec 14",
-        price: "$80 per service",
+        price: 80,
         rating: "4.7",
+        reviews: 93,
         category: "Services",
-        section: "Travel services"
+        section: "Travel services",
+        host: "Hana",
+        hostYears: 5,
+        guests: 6,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "Explore Tokyo with a private local guide who can help you discover popular attractions and hidden gems.",
+        amenities: [
+            "Essentials",
+            "Security",
+            "Family friendly",
+            "Accessible",
+            "WiFi",
+            "Coffee maker"
+        ]
     },
 
     {
         id: 32,
         image: img20,
+        images: [img20, img1, img2, img3, img4],
         title: "Private Island Service",
         location: "Maldives",
         date: "Dec 15 - Dec 20",
-        price: "$200 per service",
+        price: 200,
         rating: "5.0",
+        reviews: 147,
         category: "Services",
-        section: "Travel services"
+        section: "Travel services",
+        host: "Amira",
+        hostYears: 10,
+        guests: 8,
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        description: "A premium private island service offering a peaceful and exclusive experience in the Maldives.",
+        amenities: [
+            "WiFi",
+            "Air conditioning",
+            "Swimming pool",
+            "Kitchen",
+            "Essentials",
+            "Security",
+            "Family friendly",
+            "Accessible"
+        ]
     }
 
 ];
