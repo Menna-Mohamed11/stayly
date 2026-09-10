@@ -55,7 +55,7 @@ function Register() {
 
   return (
     <div className="min-h-screen bg-[#F7F7F7] flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-[500px] bg-white rounded-3xl shadow-lg p-8">
+      <div className="w-full max-w-500px bg-white rounded-3xl shadow-lg p-8">
         
         <div className="text-center mb-7">
         
