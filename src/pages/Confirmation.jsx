@@ -18,10 +18,10 @@ function Confirmation() {
           </p>
 
           <Link
-            to="/checkout"
+            to="/Home"
             className="inline-block bg-[#FF5A5F] text-white px-6 py-3 rounded-xl"
           >
-            Go to Checkout
+            Go to Home
           </Link>
         </div>
       </div>
@@ -30,38 +30,37 @@ function Confirmation() {
 
   return (
     <div className="min-h-screen bg-[#F7F7F7] text-[#222222]">
-
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-          <Link
-            to="/"
-            className="text-2xl font-bold text-[#FF5A5F]"
-          >
-            Stayly
+          <Link to="/Home">
+            <img
+              src="src/assets/logo.png"
+              alt="Stayly"
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           <div className="flex items-center gap-6 text-sm">
-
             <Link
-              to="/"
+              to="/Home"
               className="hover:text-[#FF5A5F]"
             >
               Home
             </Link>
 
-            <Link
-              to="/trips"
-              className="hover:text-[#FF5A5F]"
-            >
-              Trips
-            </Link>
+         
 
             <Link
               to="/wishlist"
               className="hover:text-[#FF5A5F]"
             >
               Wishlist
+            </Link>
+               <Link
+              to="/trips"
+              className="text-sm font-medium hover:text-[#FF5A5F] transition"
+            >
+              Trips
             </Link>
 
             <Link
@@ -70,16 +69,12 @@ function Confirmation() {
             >
               Profile
             </Link>
-
           </div>
-
         </div>
       </nav>
 
       <main className="max-w-3xl mx-auto px-6 py-16">
-
         <div className="text-center">
-
           <div className="mx-auto w-20 h-20 rounded-full bg-[#FF5A5F] flex items-center justify-center text-white text-4xl">
             ✓
           </div>
@@ -91,11 +86,9 @@ function Confirmation() {
           <p className="text-[#717171] mt-3">
             Your trip has been successfully booked.
           </p>
-
         </div>
 
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm mt-10 overflow-hidden">
-
           <img
             src={booking.trip.image}
             alt={booking.trip.name}
@@ -103,7 +96,6 @@ function Confirmation() {
           />
 
           <div className="p-6">
-
             <h2 className="text-2xl font-semibold">
               {booking.trip.name}
             </h2>
@@ -113,14 +105,15 @@ function Confirmation() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-
               <div>
                 <p className="text-sm text-[#717171]">
                   Check-in
                 </p>
 
                 <p className="font-medium mt-1">
-                  {booking.checkIn}
+                  {new Date(
+                    booking.checkIn
+                  ).toLocaleDateString()}
                 </p>
               </div>
 
@@ -130,7 +123,9 @@ function Confirmation() {
                 </p>
 
                 <p className="font-medium mt-1">
-                  {booking.checkOut}
+                  {new Date(
+                    booking.checkOut
+                  ).toLocaleDateString()}
                 </p>
               </div>
 
@@ -153,11 +148,9 @@ function Confirmation() {
                   ${booking.total}
                 </p>
               </div>
-
             </div>
 
             <div className="border-t mt-8 pt-6">
-
               <p className="text-sm text-[#717171]">
                 Reservation number
               </p>
@@ -165,33 +158,21 @@ function Confirmation() {
               <p className="font-semibold mt-1">
                 STY-{Date.now()}
               </p>
-
             </div>
-
           </div>
-
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
+         
 
           <Link
-            to="/trips"
-            className="flex-1 text-center bg-[#FF5A5F] hover:bg-[#FC8A8F] text-white font-semibold py-4 rounded-xl transition"
-          >
-            View my trips
-          </Link>
-
-          <Link
-            to="/"
+            to={`/property/${booking.trip.id}`}
             className="flex-1 text-center bg-white border border-gray-300 hover:border-[#FF5A5F] font-semibold py-4 rounded-xl transition"
           >
-            Back to home
+            Back to Property Details
           </Link>
-
         </div>
-
       </main>
-
     </div>
   );
 }
