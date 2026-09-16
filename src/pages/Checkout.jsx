@@ -1,10 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import logo from '../assets/logo.png'
 function Checkout() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // البيانات اللي جاية من صفحة الـ Property Details
   const {
     property,
     checkIn,
@@ -12,26 +11,20 @@ function Checkout() {
     guests,
   } = location.state || {};
 
-  // لو المستخدم دخل checkout من غير ما يختار Property
   if (!property) {
     return (
-      <div className="min-h-screen bg-[#F7F7F7]">
-        {/* Navbar */}
-        <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link
-              to="/"
-              className="text-2xl font-bold text-[#FF5A5F]"
-            >
-              Stayly
+      <div className="min-h-screen bg-white">
+        <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
+            <Link to="/Home">
+              <img
+                src={logo}
+                alt="Stayly"
+                className="h-22 w-auto object-contain"
+              />
             </Link>
 
-            <Link
-              to="/"
-              className="text-sm font-medium hover:text-[#FF5A5F]"
-            >
-              Back to Home
-            </Link>
+            
           </div>
         </nav>
 
@@ -45,17 +38,16 @@ function Checkout() {
           </p>
 
           <Link
-            to="/"
-            className="bg-[#FF5A5F] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#FC8A8F] transition"
+            to="/Home"
+            className="bg-[#FF5A5F] text-white px-6 py-3 rounded-xl font-semibold"
           >
-            Browse stays
+            Go to Home
           </Link>
         </div>
       </div>
     );
   }
 
-  // عدد الليالي
   const startDate = new Date(checkIn);
   const endDate = new Date(checkOut);
 
@@ -66,71 +58,78 @@ function Checkout() {
     )
   );
 
-  // الأسعار
   const pricePerNight = property.price || 0;
-
   const subtotal = pricePerNight * nights;
-
   const cleaningFee = property.cleaningFee || 50;
-
-  const serviceFee = property.serviceFee || Math.round(subtotal * 0.12);
-
+  const serviceFee =
+    property.serviceFee || Math.round(subtotal * 0.12);
   const total = subtotal + cleaningFee + serviceFee;
 
+  const propertyImage =
+    property.images?.[0] || property.image;
+
+  const propertyName =
+    property.title || property.name;
+
+  const confirmBooking = () => {
+    navigate("/confirmation", {
+      state: {
+        booking: {
+          trip: {
+            ...property,
+            name: propertyName,
+            image: propertyImage,
+          },
+          checkIn,
+          checkOut,
+          guests,
+          nights,
+          total,
+        },
+      },
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-[#F7F7F7] text-[#222222]">
-
-      {/* ================= Navbar ================= */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-2xl font-bold text-[#FF5A5F]"
-          >
-            Stayly
+    <div className="min-h-screen bg-white text-[#222222]">
+      <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
+          <Link to="/Home">
+            <img
+              src={logo}
+              alt="Stayly"
+              className="h-22 w-auto object-contain"
+            />
           </Link>
 
-          {/* Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-6 text-sm">
             <Link
-              to="/"
-              className="text-sm font-medium hover:text-[#FF5A5F] transition"
+              to="/Home"
+              className="hover:text-[#FF5A5F]"
             >
               Home
             </Link>
 
-            <Link
-              to="/trips"
-              className="text-sm font-medium hover:text-[#FF5A5F] transition"
-            >
-              Trips
-            </Link>
+            
 
             <Link
               to="/wishlist"
-              className="text-sm font-medium hover:text-[#FF5A5F] transition"
+              className="hover:text-[#FF5A5F]"
             >
               Wishlist
             </Link>
+
+            <Link
+              to="/profile"
+              className="border border-gray-300 rounded-full px-5 py-2 hover:border-[#FF5A5F]"
+            >
+              Profile
+            </Link>
           </div>
-
-          {/* Profile */}
-          <Link
-            to="/profile"
-            className="border border-gray-300 rounded-full px-5 py-2 text-sm font-medium hover:border-[#FF5A5F] transition"
-          >
-            Profile
-          </Link>
-
         </div>
       </nav>
 
-
-      {/* ================= Main ================= */}
       <main className="max-w-6xl mx-auto px-6 py-10">
-
         <button
           onClick={() => navigate(-1)}
           className="text-[#717171] hover:text-[#FF5A5F] mb-6"
@@ -142,59 +141,39 @@ function Checkout() {
           Confirm and pay
         </h1>
 
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-
-          {/* ================= LEFT ================= */}
           <div className="lg:col-span-2 space-y-6">
-
-            {/* Your Trip */}
             <section className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-
               <h2 className="text-xl font-semibold mb-6">
                 Your trip
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-
-                {/* Dates */}
                 <div>
-                  <p className="font-medium">
-                    Dates
-                  </p>
+                  <p className="font-medium">Dates</p>
 
                   <p className="text-[#717171] mt-1">
-                    {checkIn} – {checkOut}
+                    {new Date(checkIn).toLocaleDateString()} –{" "}
+                    {new Date(checkOut).toLocaleDateString()}
                   </p>
                 </div>
 
-                {/* Guests */}
                 <div>
-                  <p className="font-medium">
-                    Guests
-                  </p>
+                  <p className="font-medium">Guests</p>
 
                   <p className="text-[#717171] mt-1">
                     {guests} {guests === 1 ? "guest" : "guests"}
                   </p>
                 </div>
-
               </div>
-
             </section>
 
-
-            {/* Payment */}
             <section className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-
               <h2 className="text-xl font-semibold mb-6">
                 Pay with
               </h2>
 
               <div className="space-y-5">
-
-                {/* Card Number */}
                 <div>
                   <label className="block text-sm font-medium mb-2">
                     Card number
@@ -207,10 +186,7 @@ function Checkout() {
                   />
                 </div>
 
-
-                {/* Expiry + CVV */}
                 <div className="grid grid-cols-2 gap-4">
-
                   <div>
                     <label className="block text-sm font-medium mb-2">
                       Expiry date
@@ -223,7 +199,6 @@ function Checkout() {
                     />
                   </div>
 
-
                   <div>
                     <label className="block text-sm font-medium mb-2">
                       CVV
@@ -235,17 +210,11 @@ function Checkout() {
                       className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:border-[#FF5A5F]"
                     />
                   </div>
-
                 </div>
-
               </div>
-
             </section>
 
-
-            {/* Cancellation */}
             <section className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-
               <h2 className="text-xl font-semibold mb-3">
                 Cancellation policy
               </h2>
@@ -254,28 +223,19 @@ function Checkout() {
                 Free cancellation before your check-in date.
                 Cancellation fees may apply after that.
               </p>
-
             </section>
-
           </div>
 
-
-          {/* ================= RIGHT ================= */}
           <aside className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm h-fit lg:sticky lg:top-24">
-
-            {/* Property Image */}
             <img
-              src={property.image}
-              alt={property.name}
+              src={propertyImage}
+              alt={propertyName}
               className="w-full h-52 object-cover rounded-xl mb-5"
             />
 
-
-            {/* Property Info */}
             <div className="pb-5 border-b">
-
               <h2 className="text-xl font-semibold">
-                {property.name}
+                {propertyName}
               </h2>
 
               <p className="text-[#717171] mt-2">
@@ -293,100 +253,59 @@ function Checkout() {
                   {property.description}
                 </p>
               )}
-
             </div>
 
-
-            {/* Price Details */}
             <div className="py-6 border-b">
-
               <h2 className="text-xl font-semibold mb-5">
                 Price details
               </h2>
 
               <div className="space-y-4 text-sm">
-
                 <div className="flex justify-between">
                   <span className="text-[#717171]">
                     ${pricePerNight} × {nights} nights
                   </span>
 
-                  <span>
-                    ${subtotal}
-                  </span>
+                  <span>${subtotal}</span>
                 </div>
-
 
                 <div className="flex justify-between">
                   <span className="text-[#717171]">
                     Cleaning fee
                   </span>
 
-                  <span>
-                    ${cleaningFee}
-                  </span>
+                  <span>${cleaningFee}</span>
                 </div>
-
 
                 <div className="flex justify-between">
                   <span className="text-[#717171]">
                     Service fee
                   </span>
 
-                  <span>
-                    ${serviceFee}
-                  </span>
+                  <span>${serviceFee}</span>
                 </div>
-
               </div>
-
             </div>
 
-
-            {/* Total */}
             <div className="flex justify-between text-lg font-semibold py-6">
+              <span>Total</span>
 
-              <span>
-                Total
-              </span>
-
-              <span>
-                ${total}
-              </span>
-
+              <span>${total}</span>
             </div>
 
-
-            {/* Confirm */}
             <button
-              onClick={() =>
-                navigate("/confirmation", {
-                  state: {
-                    property,
-                    checkIn,
-                    checkOut,
-                    guests,
-                    nights,
-                    total,
-                  },
-                })
-              }
+              onClick={confirmBooking}
               className="w-full bg-[#FF5A5F] hover:bg-[#FC8A8F] text-white font-semibold py-4 rounded-xl transition"
             >
               Confirm & Pay
             </button>
 
-
             <p className="text-center text-xs text-[#717171] mt-4">
               You won't be charged until you confirm your booking.
             </p>
-
           </aside>
-
         </div>
-
       </main>
-
     </div>
   );
 }
