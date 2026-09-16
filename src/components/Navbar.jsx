@@ -1,4 +1,4 @@
-import { Globe, Menu, Sofa, Landmark, Volleyball, Toolbox, Search } from 'lucide-react';
+import { Globe, Menu, Sofa, Landmark, Volleyball, Toolbox, Search ,CircleHelp} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import logo from '../assets/logo1.jpeg';
@@ -9,6 +9,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
     const [showWhere, setShowWhere] = useState(false);
     const [showWhen, setShowWhen] = useState(false);
     const [showWho, setShowWho] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
     useEffect(() => {
         const handlescroll = () => {
@@ -44,22 +45,22 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
 
                     <button 
                     onClick={() => onCategoryChange("All")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
-                        ${category === "All" ? "text-coral" : "" }
+                        ${category === "All" ? "text-[#FF5A5F]" : "" }
                     `}>
                         <Landmark /> All</button>
                     <button 
                     onClick={() => onCategoryChange("Home")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
-                        ${category === "Home" ? "text-coral" : "" }
+                        ${category === "Home" ? "text-[#FF5A5F]" : "" }
                     `}>
                         <Sofa /> Home</button>
                     <button 
                     onClick={() => onCategoryChange("Experiences")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
-                        ${category === "Experiences" ? "text-coral" : "" }
+                        ${category === "Experiences" ? "text-[#FF5A5F]" : "" }
                     `}>
                         <Volleyball /> Experiences</button>
                     <button 
                     onClick={() => onCategoryChange("Services")} className={`flex items-center gap-2 transition-transform duration-200 active:scale-95 hover:scale-110 cursor-pointer
-                        ${category === "Services" ? "text-coral" : "" }
+                        ${category === "Services" ? "text-[#FF5A5F]" : "" }
                     `}> 
                         <Toolbox /> Services</button>
                 </div>
@@ -104,12 +105,28 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
 
             <span className='hidden md:block whitespace-nowrap shrink-0'> 
                 Become a host </span>
-        <button className="bg-lightgray flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-muted cursor-pointer">
+        <button className="bg-lightgray flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-gray-200 cursor-pointer">
              <Globe />
         </button>
-          <button className="bg-lightgray flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-muted cursor-pointer">
-            <Menu />
-          </button>
+          <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+
+                            setShowMenu(!showMenu);
+
+                            // Close the other dropdowns
+                            setShowWhere(false);
+                            setShowWhen(false);
+                            setShowWho(false);
+                        }}
+                        className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
+                            showMenu
+                                ? "bg-gray-200"
+                                : "bg-[#f7f7f7] hover:bg-gray-200"
+                        }`}
+                    >
+                        <Menu size={22} />
+                    </button>
         </div>
             </div>
 
@@ -271,6 +288,96 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                     <Search />
                 </button>
                 </Link>
+                {/* HAMBURGER DROPDOWN MENU */}
+                    {showMenu && (
+                        <div
+                            onClick={(e) => e.stopPropagation()}
+                            className="absolute right-0 top-14 w-325px overflow-hidden rounded-2xl border border-gray-200 bg-white ]"
+                        >
+
+                            {/* Help Center */}
+                            <button
+                                onClick={() => setShowMenu(false)}
+                                className="flex w-full items-center gap-3 px-5 py-5 text-left  hover:bg-gray-50"
+                            >
+                                <CircleHelp
+                                    size={22}
+                                    strokeWidth={2}
+                                />
+
+                                <span className="text-[15px] font-medium">
+                                    Help Center
+                                </span>
+                            </button>
+
+
+                            {/* Divider */}
+                            <div className="mx-5 border-t border-gray-200" />
+
+
+                            {/* Become a host */}
+                            <button
+                                onClick={() => setShowMenu(false)}
+                                className="flex w-full items-center justify-between px-5 py-3 text-left hover:bg-gray-50"
+                            >
+                                <div>
+                                    <div className="text-[15px] font-semibold">
+                                        Become a host
+                                    </div>
+
+                                    <div className="max-w-210px text-[13px] leading-5 text-gray-500">
+                                        It's easy to start hosting and earn
+                                        extra income.
+                                    </div>
+                                </div>
+
+                                {/* Small illustration */}
+                                <div className="ml-3 text-3xl">
+                                    🧑‍💼
+                                </div>
+                            </button>
+
+
+                            {/* Divider */}
+                            <div className="mx-5 border-t border-gray-300" />
+
+
+                            {/* Find a co-host */}
+                            <button
+                                onClick={() => setShowMenu(false)}
+                                className="w-full px-5 py-2 text-left text-[15px] transition-colors hover:bg-gray-50"
+                            >
+                                Find a co-host
+                            </button>
+
+
+                            {/* Gift cards */}
+                            <button
+                                onClick={() => setShowMenu(false)}
+                                className="w-full px-5 py-2 text-left text-[15px] transition-colors hover:bg-gray-50"
+                            >
+                                Gift cards
+                            </button>
+
+
+                            {/* Divider */}
+                            <div className="mx-5 border-t border-gray-200" />
+
+
+                            {/* Log in or sign up */}
+                            <Link
+                            to={`/login`}>
+                            <button
+                                onClick={() => setShowMenu(false)}
+                                className="w-full px-5 py-3 text-left text-[15px] transition-colors hover:bg-gray-50"
+                            >
+                                Log in or sign up
+                            </button>
+                            </Link>
+                        </div>
+                    )}
+
+               
 
             </div>
         </nav>

@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from '../assets/logo.png'
 import { saveTrip } from "../localstorage";
 
 function Checkout() {
@@ -14,23 +15,18 @@ function Checkout() {
 
   if (!property) {
     return (
-      <div className="min-h-screen bg-[#F7F7F7]">
-        <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="min-h-screen bg-white">
+        <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
             <Link to="/Home">
               <img
-                src="src/assets/logo.png"
+                src={logo}
                 alt="Stayly"
-                className="h-12 w-auto object-contain"
+                className="h-22 w-auto object-contain"
               />
             </Link>
 
-            <Link
-              to="/Home"
-              className="text-sm font-medium hover:text-[#FF5A5F]"
-            >
-              Back to Property Details
-            </Link>
+            
           </div>
         </nav>
 
@@ -47,7 +43,7 @@ function Checkout() {
             to="/Home"
             className="bg-[#FF5A5F] text-white px-6 py-3 rounded-xl font-semibold"
           >
-            Browse stays
+            Go to Home
           </Link>
         </div>
       </div>
@@ -78,6 +74,20 @@ function Checkout() {
     property.title || property.name;
 
   const confirmBooking = () => {
+    navigate("/confirmation", {
+      state: {
+        booking: {
+          trip: {
+            ...property,
+            name: propertyName,
+            image: propertyImage,
+          },
+          checkIn,
+          checkOut,
+          guests,
+          nights,
+          total,
+        },
     const booking = {
       trip: {
         ...property,
@@ -106,14 +116,14 @@ function Checkout() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F7F7] text-[#222222]">
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-white text-[#222222]">
+      <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
           <Link to="/Home">
             <img
-              src="src/assets/logo.png"
+              src={logo}
               alt="Stayly"
-              className="h-12 w-auto object-contain"
+              className="h-22 w-auto object-contain"
             />
           </Link>
 
@@ -125,6 +135,8 @@ function Checkout() {
               Home
             </Link>
 
+            
+
             <Link
               to="/wishlist"
               className="text-sm font-medium hover:text-[#FF5A5F] transition"
@@ -133,6 +145,12 @@ function Checkout() {
             </Link>
 
             <Link
+              to="/profile"
+              className="border border-gray-300 rounded-full px-5 py-2 text-sm font-medium hover:border-[#FF5A5F] transition"
+            >
+              Profile
+            </Link>
+          </div>
               to="/trips"
               className="text-sm font-medium hover:text-[#FF5A5F] transition"
             >
@@ -140,12 +158,7 @@ function Checkout() {
             </Link>
           </div>
 
-          <Link
-            to="/profile"
-            className="border border-gray-300 rounded-full px-5 py-2 text-sm font-medium hover:border-[#FF5A5F] transition"
-          >
-            Profile
-          </Link>
+          
         </div>
       </nav>
 
@@ -171,6 +184,7 @@ function Checkout() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <p className="font-medium">Dates</p>
+
                   <p className="text-[#717171] mt-1">
                     {new Date(checkIn).toLocaleDateString()} –{" "}
                     {new Date(checkOut).toLocaleDateString()}
@@ -179,6 +193,7 @@ function Checkout() {
 
                 <div>
                   <p className="font-medium">Guests</p>
+
                   <p className="text-[#717171] mt-1">
                     {guests} {guests === 1 ? "guest" : "guests"}
                   </p>
@@ -307,6 +322,7 @@ function Checkout() {
 
             <div className="flex justify-between text-lg font-semibold py-6">
               <span>Total</span>
+
               <span>${total}</span>
             </div>
 

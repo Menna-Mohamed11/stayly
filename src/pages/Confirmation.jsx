@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-
+import logo from '../assets/logo.png';
 function Confirmation() {
   const location = useLocation();
 
@@ -7,7 +7,7 @@ function Confirmation() {
 
   if (!booking) {
     return (
-      <div className="min-h-screen bg-[#F7F7F7] flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-semibold">
             No booking found
@@ -29,14 +29,14 @@ function Confirmation() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F7F7] text-[#222222]">
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-white text-[#222222]">
+      <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
           <Link to="/Home">
             <img
-              src="src/assets/logo.png"
+              src={logo}
               alt="Stayly"
-              className="h-12 w-auto object-contain"
+              className="h-22 w-auto object-contain"
             />
           </Link>
 
@@ -48,6 +48,7 @@ function Confirmation() {
               Home
             </Link>
 
+            
          
 
             <Link
@@ -163,14 +164,14 @@ function Confirmation() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
-         
-
           <Link
             to={`/property/${booking.trip.id}`}
-            className="flex-1 text-center bg-white border border-gray-300 hover:border-[#FF5A5F] font-semibold py-4 rounded-xl transition"
+            className="flex-1 text-center bg-[#FF5A5F] hover:bg-[#FC8A8F] text-white font-semibold py-4 rounded-xl transition"
           >
             Back to Property Details
           </Link>
+
+          
         </div>
       </main>
     </div>

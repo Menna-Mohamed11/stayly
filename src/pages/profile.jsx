@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { getCurrentUser, logoutUser } from "../localstorage";
-
+import {Link} from 'react-router-dom'
+import logo from '../assets/logo.png'
 function Profile() {
   const navigate = useNavigate();
   const user = getCurrentUser();
 
   if (!user) {
-    return (
-      <div className="min-h-screen bg-[#F7F7F7] flex items-center justify-center px-4">
+    return (    
+      <div className="min-h-screen bg-white flex items-center justify-center px-4">
+        
         <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
           <h1 className="text-2xl font-bold text-[#222222] mb-3">
             Please log in
@@ -35,6 +37,17 @@ function Profile() {
 
   return (
     <div className="min-h-screen bg-white">
+      <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
+          <Link to="/Home">
+            <img
+              src={logo}
+              alt="Stayly"
+              className="h-22 w-auto object-contain"
+            />
+          </Link>
+          </div>
+        </nav>
       <div className="max-w-6xl mx-auto px-6 py-10">
 
         <div className="flex items-center justify-between mb-10">
