@@ -7,6 +7,7 @@ import { Navbar } from "../../components/Navbarp";
 import Reviews from "./Reviews";
 import Location from "./Location";
 import { Footer } from "../../components/Footer";
+import { getCurrentUser } from "../../localstorage";
 import {
   Wifi,
   Wind,
@@ -28,7 +29,7 @@ import {
   Accessibility,
   Bath,
   X,
-  Heart
+  Heart,
 } from "lucide-react";
 
 function PropertyDetails() {
