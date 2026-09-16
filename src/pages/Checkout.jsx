@@ -1,5 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png'
+import { saveTrip } from "../localstorage";
+
 function Checkout() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -86,6 +88,29 @@ function Checkout() {
           nights,
           total,
         },
+    const booking = {
+      trip: {
+        ...property,
+        name: propertyName,
+        image: propertyImage,
+      },
+      checkIn,
+      checkOut,
+      guests,
+      nights,
+      total,
+    };
+
+    const saved = saveTrip(booking);
+
+    if (!saved) {
+      navigate("/login");
+      return;
+    }
+
+    navigate("/confirmation", {
+      state: {
+        booking,
       },
     });
   };
@@ -102,10 +127,10 @@ function Checkout() {
             />
           </Link>
 
-          <div className="flex items-center gap-6 text-sm">
+          <div className="hidden md:flex items-center gap-8">
             <Link
               to="/Home"
-              className="hover:text-[#FF5A5F]"
+              className="text-sm font-medium hover:text-[#FF5A5F] transition"
             >
               Home
             </Link>
@@ -114,18 +139,26 @@ function Checkout() {
 
             <Link
               to="/wishlist"
-              className="hover:text-[#FF5A5F]"
+              className="text-sm font-medium hover:text-[#FF5A5F] transition"
             >
               Wishlist
             </Link>
 
             <Link
               to="/profile"
-              className="border border-gray-300 rounded-full px-5 py-2 hover:border-[#FF5A5F]"
+              className="border border-gray-300 rounded-full px-5 py-2 text-sm font-medium hover:border-[#FF5A5F] transition"
             >
               Profile
             </Link>
           </div>
+              to="/trips"
+              className="text-sm font-medium hover:text-[#FF5A5F] transition"
+            >
+              Trips
+            </Link>
+          </div>
+
+          
         </div>
       </nav>
 

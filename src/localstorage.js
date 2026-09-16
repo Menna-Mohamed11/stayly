@@ -1,5 +1,6 @@
 const USERS_KEY = "staylyUsers";
 const CURRENT_USER_KEY = "staylyCurrentUser";
+const TRIPS_KEY = "staylyTrips";
 
 export function getUsers() {
   return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
@@ -29,7 +30,6 @@ export function registerUser(userData) {
   };
 
   users.push(newUser);
-
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
 
   return {
@@ -70,4 +70,31 @@ export function getCurrentUser() {
 
 export function logoutUser() {
   localStorage.removeItem(CURRENT_USER_KEY);
+}
+
+export function getTrips() {
+  return JSON.parse(localStorage.getItem(TRIPS_KEY)) || [];
+}
+
+export function saveTrip(trip) {
+  const currentUser = getCurrentUser();
+
+  if (!currentUser) {
+    return false;
+  }
+
+  const trips = getTrips();
+
+  const newTrip = {
+    ...trip,
+    id: Date.now(),
+    userId: currentUser.id,
+    userEmail: currentUser.email,
+    status: "confirmed",
+  };
+
+  trips.push(newTrip);
+  localStorage.setItem(TRIPS_KEY, JSON.stringify(trips));
+
+  return true;
 }

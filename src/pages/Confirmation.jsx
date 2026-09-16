@@ -49,12 +49,19 @@ function Confirmation() {
             </Link>
 
             
+         
 
             <Link
               to="/wishlist"
               className="hover:text-[#FF5A5F]"
             >
               Wishlist
+            </Link>
+               <Link
+              to="/trips"
+              className="text-sm font-medium hover:text-[#FF5A5F] transition"
+            >
+              Trips
             </Link>
 
             <Link
