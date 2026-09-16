@@ -1361,120 +1361,665 @@ const properties = [
     ]
   },
 
-  {
-    id: 21,
-    title: "Rooftop City Apartment",
-    location: "Heliopolis, Cairo, Egypt",
-    mapUrl:
-      "https://www.google.com/maps?q=Heliopolis,+Cairo,+Egypt&output=embed",
+  
 
-    price: 115,
-    rating: 4.85,
-    reviews: 44,
+ {
+  id: 21,
+  title: "Explore New York City",
+  location: "New York City, New York, USA",
+  mapUrl:
+    "https://www.google.com/maps?q=New+York+City,+New+York,+USA&output=embed",
 
-    host: "Dina",
-    hostYears: 4,
+  price: 85,
+  rating: 5.0,
+  reviews: 48,
 
-    guests: 4,
-    bedrooms: 2,
-    beds: 3,
-    bathrooms: 1,
+  host: "Emma",
+  hostYears: 5,
 
-    description:
-      "A comfortable apartment in Heliopolis with modern furnishings and convenient access to cafes, restaurants, shopping areas, and Cairo International Airport.",
+  guests: 4,
+  bedrooms: 2,
+  beds: 3,
+  bathrooms: 1,
 
-    images: [
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858",
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7"
+  description:
+    "Explore New York City from a comfortable stay with easy access to famous landmarks, restaurants, shopping areas, museums, and the city's most popular attractions.",
+
+  images: [
+    "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee",
+    "https://images.unsplash.com/photo-1496588152823-86ff7695e68f",
+    "https://images.unsplash.com/photo-1522083165195-3424ed129620",
+    "https://images.unsplash.com/photo-1518391846015-55a9cc003b25",
+    "https://images.unsplash.com/photo-1534430480872-3498386e7856"
+  ],
+
+  photoCategories: {
+    "New York City": [
+      "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee"
     ],
-
-    photoCategories: {
-      "Living room": [
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb"
-      ],
-      "Bedrooms": [
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d"
-      ],
-      "Kitchen": [
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858"
-      ],
-      "Rooftop": [
-        "https://images.unsplash.com/photo-1500534623283-312aade485b7"
-      ]
-    },
-
-    amenities: [
-      "WiFi",
-      "Air conditioning",
-      "Kitchen",
-      "TV",
-      "Elevator",
-      "Workspace",
-      "Free parking on premises"
+    "City Views": [
+      "https://images.unsplash.com/photo-1496588152823-86ff7695e68f",
+      "https://images.unsplash.com/photo-1522083165195-3424ed129620"
+    ],
+    "Landmarks": [
+      "https://images.unsplash.com/photo-1518391846015-55a9cc003b25"
+    ],
+    "Downtown": [
+      "https://images.unsplash.com/photo-1534430480872-3498386e7856"
     ]
   },
 
-  {
-    id: 22,
-    title: "Cozy Alexandria Old Town Home",
-    location: "Anfushi, Alexandria, Egypt",
-    mapUrl:
-      "https://www.google.com/maps?q=Anfushi,+Alexandria,+Egypt&output=embed",
+  amenities: [
+    "WiFi",
+    "Air conditioning",
+    "Kitchen",
+    "TV",
+    "Elevator",
+    "Workspace"
+  ]
+},
 
-    price: 90,
-    rating: 4.81,
-    reviews: 29,
+{
+  id: 26,
+  title: "Dubai City Discovery",
+  location: "Dubai, United Arab Emirates",
+  mapUrl:
+    "https://www.google.com/maps?q=Dubai,+United+Arab+Emirates&output=embed",
 
-    host: "Heba",
-    hostYears: 3,
+  price: 90,
+  rating: 5.0,
+  reviews: 51,
 
-    guests: 4,
-    bedrooms: 2,
-    beds: 3,
-    bathrooms: 1,
+  host: "Omar",
+  hostYears: 6,
 
-    description:
-      "A cozy home in one of Alexandria's historic areas, offering a comfortable stay close to the Mediterranean, local markets, restaurants, and historic attractions.",
+  guests: 4,
+  bedrooms: 2,
+  beds: 3,
+  bathrooms: 2,
 
-    images: [
-      "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858",
+  description:
+    "Discover Dubai from a stylish and comfortable stay close to iconic landmarks, shopping destinations, restaurants, beaches, and the city's best attractions.",
+
+  images: [
+    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
+    "https://images.unsplash.com/photo-1518684079-3c830dcef090",
+    "https://images.unsplash.com/photo-1512632578888-169bbbc64f33",
+    "https://images.unsplash.com/photo-1546412414-e1885259563a",
+    "https://images.unsplash.com/photo-1526495124232-a04e1849168c"
+  ],
+
+  photoCategories: {
+    "Dubai City": [
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c"
+    ],
+    "City Views": [
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090",
+      "https://images.unsplash.com/photo-1512632578888-169bbbc64f33"
+    ],
+    "Landmarks": [
+      "https://images.unsplash.com/photo-1546412414-e1885259563a"
+    ],
+    "Downtown": [
+      "https://images.unsplash.com/photo-1526495124232-a04e1849168c"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Air conditioning",
+    "Kitchen",
+    "TV",
+    "Elevator",
+    "Workspace",
+    "Free parking on premises"
+  ]
+},
+
+{
+  id: 22,
+  title: "Paris Art & Culture Tour",
+  location: "Paris, France",
+  mapUrl:
+    "https://www.google.com/maps?q=Paris,+France&output=embed",
+
+  price: 70,
+  rating: 4.8,
+  reviews: 37,
+
+  host: "Claire",
+  hostYears: 7,
+
+  guests: 4,
+  bedrooms: 2,
+  beds: 2,
+  bathrooms: 1,
+
+  description:
+    "Experience the art and culture of Paris while exploring iconic museums, historic neighborhoods, beautiful architecture, galleries, cafes, and famous landmarks.",
+
+  images: [
+    "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+    "https://images.unsplash.com/photo-1549490349-8643362247b5",
+    "https://images.unsplash.com/photo-1564399579883-451a5d44ec08",
+    "https://images.unsplash.com/photo-1499856871958-5b9627545d1a",
+    "https://images.unsplash.com/photo-1503917988258-f87a78e3c995"
+  ],
+
+  photoCategories: {
+    "Paris": [
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34"
+    ],
+    "Art & Museums": [
+      "https://images.unsplash.com/photo-1549490349-8643362247b5",
+      "https://images.unsplash.com/photo-1564399579883-451a5d44ec08"
+    ],
+    "Architecture": [
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a"
+    ],
+    "Culture": [
+      "https://images.unsplash.com/photo-1503917988258-f87a78e3c995"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Air conditioning",
+    "Kitchen",
+    "TV",
+    "Elevator",
+    "Workspace"
+  ]
+},
+
+{
+  id: 23,
+  title: "Bali Jungle Adventure",
+  location: "Ubud, Bali, Indonesia",
+  mapUrl:
+    "https://www.google.com/maps?q=Ubud,+Bali,+Indonesia&output=embed",
+
+  price: 95,
+  rating: 4.9,
+  reviews: 42,
+
+  host: "Maya",
+  hostYears: 5,
+
+  guests: 4,
+  bedrooms: 2,
+  beds: 3,
+  bathrooms: 2,
+
+  description:
+    "Enjoy an unforgettable Bali jungle adventure surrounded by lush tropical landscapes, waterfalls, rice terraces, local culture, and peaceful natural scenery.",
+
+  images: [
+    "https://images.unsplash.com/photo-1537996194471-e657df975ab4",
+    "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+    "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8",
+    "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b",
+    "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8"
+  ],
+
+  photoCategories: {
+    "Jungle": [
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4"
+    ],
+    "Nature": [
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8"
+    ],
+    "Waterfalls": [
+      "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b"
+    ],
+    "Rice Terraces": [
+      "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Air conditioning",
+    "Kitchen",
+    "TV",
+    "Workspace",
+    "Free parking on premises"
+  ]
+},
+
+{
+  id: 25,
+  title: "Yorkshire Countryside Walk",
+  location: "Yorkshire, England, United Kingdom",
+  mapUrl:
+    "https://www.google.com/maps?q=Yorkshire,+England&output=embed",
+
+  price: 75,
+  rating: 4.8,
+  reviews: 31,
+
+  host: "James",
+  hostYears: 8,
+
+  guests: 4,
+  bedrooms: 2,
+  beds: 2,
+  bathrooms: 1,
+
+  description:
+    "Take a relaxing countryside walk through the beautiful landscapes of Yorkshire, exploring scenic trails, green hills, historic villages, and peaceful nature.",
+
+  images: [
+    "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+    "https://images.unsplash.com/photo-1473448912268-2022ce9509d8",
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+  ],
+
+  photoCategories: {
+    "Countryside": [
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7"
+    ],
+    "Walking Trails": [
+      "https://images.unsplash.com/photo-1473448912268-2022ce9509d8",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+    ],
+    "Hills": [
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"
     ],
-
-    photoCategories: {
-      "Living room": [
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
-      ],
-      "Bedrooms": [
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
-      ],
-      "Kitchen": [
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858"
-      ],
-      "Bathroom": [
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3"
-      ],
-      "View": [
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"
-      ]
-    },
-
-    amenities: [
-      "WiFi",
-      "Air conditioning",
-      "Kitchen",
-      "TV",
-      "Essentials",
-      "Free parking on premises"
+    "Nature": [
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
     ]
-  }
+  },
+
+  amenities: [
+    "WiFi",
+    "Workspace",
+    "Free parking on premises",
+    "Kitchen"
+  ]
+},
+
+{
+  id: 24,
+  title: "Barcelona Food Tour",
+  location: "Barcelona, Spain",
+  mapUrl:
+    "https://www.google.com/maps?q=Barcelona,+Spain&output=embed",
+
+  price: 65,
+  rating: 4.7,
+  reviews: 29,
+
+  host: "Lucia",
+  hostYears: 6,
+
+  guests: 4,
+  bedrooms: 2,
+  beds: 2,
+  bathrooms: 1,
+
+  description:
+    "Discover Barcelona through its food, from traditional tapas and local markets to authentic Catalan dishes, charming restaurants, and vibrant food streets.",
+
+  images: [
+    "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7",
+    "https://images.unsplash.com/photo-1559339352-11d035aa65de",
+    "https://images.unsplash.com/photo-1547592180-85f173990554",
+    "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f",
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+  ],
+
+  photoCategories: {
+    "Local Food": [
+      "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7"
+    ],
+    "Tapas": [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de"
+    ],
+    "Markets": [
+      "https://images.unsplash.com/photo-1547592180-85f173990554"
+    ],
+    "Restaurants": [
+      "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Kitchen",
+    "Air conditioning",
+    "Workspace"
+  ]
+},
+
+{
+  id: 27,
+  title: "Private Yacht Service",
+  location: "Dubai, United Arab Emirates",
+  mapUrl:
+    "https://www.google.com/maps?q=Dubai+Marina,+Dubai&output=embed",
+
+  price: 150,
+  rating: 4.9,
+  reviews: 35,
+
+  host: "Ahmed",
+  hostYears: 9,
+
+  guests: 8,
+  bedrooms: 3,
+  beds: 4,
+  bathrooms: 2,
+
+  description:
+    "Enjoy a private yacht experience along the Dubai coastline with beautiful views, comfortable spaces, and a relaxing atmosphere for family and friends.",
+
+  images: [
+    "https://images.unsplash.com/photo-1540946485063-a40da27545f8",
+    "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13",
+    "https://images.unsplash.com/photo-1605281317010-fe5ffe798166",
+    "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a",
+    "https://images.unsplash.com/photo-1544551763-46a013bb70d5"
+  ],
+
+  photoCategories: {
+    "Yacht": [
+      "https://images.unsplash.com/photo-1540946485063-a40da27545f8"
+    ],
+    "Sea Views": [
+      "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13",
+      "https://images.unsplash.com/photo-1605281317010-fe5ffe798166"
+    ],
+    "Deck": [
+      "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a"
+    ],
+    "Dubai Coast": [
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Air conditioning",
+    "TV",
+    "Workspace",
+    "Kitchen"
+  ]
+},
+
+{
+  id: 28,
+  title: "Mountain Guide Service",
+  location: "Swiss Alps, Switzerland",
+  mapUrl:
+    "https://www.google.com/maps?q=Swiss+Alps,+Switzerland&output=embed",
+
+  price: 120,
+  rating: 4.8,
+  reviews: 27,
+
+  host: "Daniel",
+  hostYears: 10,
+
+  guests: 6,
+  bedrooms: 2,
+  beds: 3,
+  bathrooms: 1,
+
+  description:
+    "Explore breathtaking mountain landscapes with an experienced local guide who will take you through scenic trails, alpine villages, and unforgettable viewpoints.",
+
+  images: [
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+    "https://images.unsplash.com/photo-1454496522488-7a8e488e8606",
+    "https://images.unsplash.com/photo-1464278533981-50106e6176b1",
+    "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+    "https://images.unsplash.com/photo-1486911278844-a81c5267e227"
+  ],
+
+  photoCategories: {
+    "Mountains": [
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"
+    ],
+    "Alpine Trails": [
+      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606",
+      "https://images.unsplash.com/photo-1464278533981-50106e6176b1"
+    ],
+    "Nature": [
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7"
+    ],
+    "Mountain Views": [
+      "https://images.unsplash.com/photo-1486911278844-a81c5267e227"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Workspace",
+    "Free parking on premises",
+    "Kitchen"
+  ]
+},
+
+{
+  id: 31,
+  title: "Private Local Guide",
+  location: "Rome, Italy",
+  mapUrl:
+    "https://www.google.com/maps?q=Rome,+Italy&output=embed",
+
+  price: 80,
+  rating: 4.7,
+  reviews: 24,
+
+  host: "Marco",
+  hostYears: 7,
+
+  guests: 6,
+  bedrooms: 2,
+  beds: 3,
+  bathrooms: 1,
+
+  description:
+    "Discover Rome with a private local guide who will show you the city's famous landmarks, historic streets, hidden gems, local neighborhoods, and cultural highlights.",
+
+  images: [
+    "https://images.unsplash.com/photo-1529260830199-42c24126f198",
+    "https://images.unsplash.com/photo-1552832230-c0197dd311b5",
+    "https://images.unsplash.com/photo-1531572753322-ad063cecc140",
+    "https://images.unsplash.com/photo-1529260830199-42c24126f198",
+    "https://images.unsplash.com/photo-1533105079780-92b9be482077"
+  ],
+
+  photoCategories: {
+    "Rome": [
+      "https://images.unsplash.com/photo-1529260830199-42c24126f198"
+    ],
+    "Historic Sites": [
+      "https://images.unsplash.com/photo-1552832230-c0197dd311b5",
+      "https://images.unsplash.com/photo-1531572753322-ad063cecc140"
+    ],
+    "Local Streets": [
+      "https://images.unsplash.com/photo-1529260830199-42c24126f198"
+    ],
+    "City Views": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Air conditioning",
+    "Workspace",
+    "Kitchen"
+  ]
+},
+
+{
+  id: 32,
+  title: "Private Island Service",
+  location: "Maldives",
+  mapUrl:
+    "https://www.google.com/maps?q=Maldives&output=embed",
+
+  price: 200,
+  rating: 5.0,
+  reviews: 39,
+
+  host: "Nora",
+  hostYears: 8,
+
+  guests: 8,
+  bedrooms: 4,
+  beds: 5,
+  bathrooms: 3,
+
+  description:
+    "Enjoy an exclusive private island experience in the Maldives with beautiful beaches, crystal-clear waters, peaceful surroundings, and unforgettable tropical views.",
+
+  images: [
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57",
+    "https://images.unsplash.com/photo-1540202404-a2f29016b523",
+    "https://images.unsplash.com/photo-1505881502353-a1986add3762",
+    "https://images.unsplash.com/photo-1514282401047-d79a71a590e8"
+  ],
+
+  photoCategories: {
+    "Private Island": [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+    ],
+    "Beach": [
+      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57",
+      "https://images.unsplash.com/photo-1540202404-a2f29016b523"
+    ],
+    "Ocean": [
+      "https://images.unsplash.com/photo-1505881502353-a1986add3762"
+    ],
+    "Tropical Views": [
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8"
+    ]
+  },
+
+  amenities: [
+    "WiFi",
+    "Air conditioning",
+    "Kitchen",
+    "TV",
+    "Workspace",
+    "Free parking on premises"
+  ]
+}
+,
+{
+  id: 29,
+  title: "Home Setup Service",
+  location: "Cairo, Egypt",
+
+  price: 100,
+  rating: 4.9,
+  reviews: 38,
+
+  host: "Mariam",
+  hostYears: 5,
+
+  guests: 1,
+  bedrooms: 0,
+  beds: 0,
+  bathrooms: 0,
+
+  description:
+    "A professional home setup service designed to make your new space comfortable, organized, and ready to enjoy.",
+
+  images: [
+    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace",
+    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
+    "https://images.unsplash.com/photo-1617104678098-de229db51175"
+  ],
+
+  photoCategories: {
+    "Living room": [
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7"
+    ],
+    "Bedroom": [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace"
+    ],
+    "Home decor": [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3"
+    ],
+    "Interior": [
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6"
+    ]
+  },
+
+  amenities: [
+    "Furniture setup",
+    "Home organization",
+    "Interior arrangement",
+    "Decor assistance",
+    "Cleaning"
+  ]
+},
+
+{
+  id: 30,
+  title: "Lakeside Wellness Service",
+  location: "Lake District, United Kingdom",
+
+  price: 130,
+  rating: 4.8,
+  reviews: 42,
+
+  host: "Sophie",
+  hostYears: 6,
+
+  guests: 1,
+  bedrooms: 0,
+  beds: 0,
+  bathrooms: 0,
+
+  description:
+    "A relaxing lakeside wellness service offering a peaceful environment for rest, mindfulness, and personal wellbeing surrounded by nature.",
+
+  images: [
+    "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
+    "https://images.unsplash.com/photo-1515377905703-c4788e51af15",
+    "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+    "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8",
+    "https://images.unsplash.com/photo-1497250681960-ef046c08a56e"
+  ],
+
+  photoCategories: {
+    "Wellness area": [
+      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874"
+    ],
+    "Relaxation": [
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15"
+    ],
+    "Meditation": [
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773"
+    ],
+    "Nature": [
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8"
+    ]
+  },
+
+  amenities: [
+    "Wellness session",
+    "Meditation",
+    "Relaxation area",
+    "Nature surroundings",
+    "Personal guidance"
+  ]
+}
+
+
+
 ];
 
 export default properties;
