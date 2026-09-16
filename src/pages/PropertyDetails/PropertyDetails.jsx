@@ -37,13 +37,17 @@ function PropertyDetails() {
   const navigate = useNavigate();
 
   const [showAmenities, setShowAmenities] = useState(false);
-  const [guests, setGuests] = useState(1);
+  const [guests, setGuests] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [selectedDates, setSelectedDates] = useState({
     from: undefined,
     to: undefined,
   });
   const [openCalendar, setOpenCalendar] = useState(false);
+
+  const [destination, setDestination] = useState("");
+  const [date, setDate] = useState("");
+
 
   const amenityIcons = {
     "WiFi": Wifi,
@@ -169,7 +173,13 @@ function PropertyDetails() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <Navbar />
+      <Navbar
+      destination={destination}
+    setDestination={setDestination}
+    date={date}
+    setDate={setDate}
+    guests={guests}
+    setGuests={setGuests} />
 
       <section
         id="photos"
