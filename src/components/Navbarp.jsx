@@ -237,12 +237,12 @@ export function Navbar({
                 <div className="relative flex items-center gap-3">
 
                     {/* Become a host */}
-                    <button
+                    <Link
+                        to="/host/login"
                         className="hidden lg:block whitespace-nowrap rounded-full px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors"
                     >
                         Become a host
-                    </button>
-
+                    </Link>
 
                     {/* Globe */}
                     <button
@@ -264,11 +264,10 @@ export function Navbar({
                             setShowWhen(false);
                             setShowWho(false);
                         }}
-                        className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
-                            showMenu
-                                ? "bg-gray-200"
-                                : "bg-[#f7f7f7] hover:bg-gray-200"
-                        }`}
+                        className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${showMenu
+                            ? "bg-gray-200"
+                            : "bg-[#f7f7f7] hover:bg-gray-200"
+                            }`}
                     >
                         <Menu size={22} />
                     </button>
@@ -302,7 +301,8 @@ export function Navbar({
 
 
                             {/* Become a host */}
-                            <button
+                            <Link
+                                to="/host/login"
                                 onClick={() => setShowMenu(false)}
                                 className="flex w-full items-center justify-between px-5 py-3 text-left hover:bg-gray-50"
                             >
@@ -317,11 +317,10 @@ export function Navbar({
                                     </div>
                                 </div>
 
-                                {/* Small illustration */}
                                 <div className="ml-3 text-3xl">
                                     🧑‍💼
                                 </div>
-                            </button>
+                            </Link>
 
 
                             {/* Divider */}
@@ -352,13 +351,13 @@ export function Navbar({
 
                             {/* Log in or sign up */}
                             <Link
-                            to={`/login`}>
-                            <button
-                                onClick={() => setShowMenu(false)}
-                                className="w-full px-5 py-3 text-left text-[15px] transition-colors hover:bg-gray-50"
-                            >
-                                Log in or sign up
-                            </button>
+                                to={`/login`}>
+                                <button
+                                    onClick={() => setShowMenu(false)}
+                                    className="w-full px-5 py-3 text-left text-[15px] transition-colors hover:bg-gray-50"
+                                >
+                                    Log in or sign up
+                                </button>
                             </Link>
                         </div>
                     )}

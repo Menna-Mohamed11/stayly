@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from '../assets/logo.png'
+import logo from "../assets/logo.png";
 import { saveTrip } from "../localstorage";
 
 function Checkout() {
@@ -17,7 +17,7 @@ function Checkout() {
     return (
       <div className="min-h-screen bg-white">
         <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <Link to="/Home">
               <img
                 src={logo}
@@ -25,8 +25,6 @@ function Checkout() {
                 className="h-22 w-auto object-contain"
               />
             </Link>
-
-            
           </div>
         </nav>
 
@@ -62,9 +60,12 @@ function Checkout() {
 
   const pricePerNight = property.price || 0;
   const subtotal = pricePerNight * nights;
+
   const cleaningFee = property.cleaningFee || 50;
+
   const serviceFee =
     property.serviceFee || Math.round(subtotal * 0.12);
+
   const total = subtotal + cleaningFee + serviceFee;
 
   const propertyImage =
@@ -74,20 +75,6 @@ function Checkout() {
     property.title || property.name;
 
   const confirmBooking = () => {
-    navigate("/confirmation", {
-      state: {
-        booking: {
-          trip: {
-            ...property,
-            name: propertyName,
-            image: propertyImage,
-          },
-          checkIn,
-          checkOut,
-          guests,
-          nights,
-          total,
-        },
     const booking = {
       trip: {
         ...property,
@@ -118,7 +105,7 @@ function Checkout() {
   return (
     <div className="min-h-screen bg-white text-[#222222]">
       <nav className="sticky top-0 z-50 bg-[#F7F7F7] border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6  flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link to="/Home">
             <img
               src={logo}
@@ -135,13 +122,18 @@ function Checkout() {
               Home
             </Link>
 
-            
-
             <Link
               to="/wishlist"
               className="text-sm font-medium hover:text-[#FF5A5F] transition"
             >
               Wishlist
+            </Link>
+
+            <Link
+              to="/trips"
+              className="text-sm font-medium hover:text-[#FF5A5F] transition"
+            >
+              Trips
             </Link>
 
             <Link
@@ -151,14 +143,6 @@ function Checkout() {
               Profile
             </Link>
           </div>
-              to="/trips"
-              className="text-sm font-medium hover:text-[#FF5A5F] transition"
-            >
-              Trips
-            </Link>
-          </div>
-
-          
         </div>
       </nav>
 
@@ -176,6 +160,7 @@ function Checkout() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
+
             <section className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
               <h2 className="text-xl font-semibold mb-6">
                 Your trip
@@ -195,7 +180,8 @@ function Checkout() {
                   <p className="font-medium">Guests</p>
 
                   <p className="text-[#717171] mt-1">
-                    {guests} {guests === 1 ? "guest" : "guests"}
+                    {guests}{" "}
+                    {guests === 1 ? "guest" : "guests"}
                   </p>
                 </div>
               </div>
@@ -257,9 +243,11 @@ function Checkout() {
                 Cancellation fees may apply after that.
               </p>
             </section>
+
           </div>
 
           <aside className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm h-fit lg:sticky lg:top-24">
+
             <img
               src={propertyImage}
               alt={propertyName}
@@ -294,6 +282,7 @@ function Checkout() {
               </h2>
 
               <div className="space-y-4 text-sm">
+
                 <div className="flex justify-between">
                   <span className="text-[#717171]">
                     ${pricePerNight} × {nights} nights
@@ -317,6 +306,7 @@ function Checkout() {
 
                   <span>${serviceFee}</span>
                 </div>
+
               </div>
             </div>
 
@@ -336,6 +326,7 @@ function Checkout() {
             <p className="text-center text-xs text-[#717171] mt-4">
               You won't be charged until you confirm your booking.
             </p>
+
           </aside>
         </div>
       </main>

@@ -9,6 +9,11 @@ import Trips from "./pages/trips.jsx";
 import PropertyDetails from "./pages/PropertyDetails/PropertyDetails";
 import Photos from "./pages/PropertyDetails/Photos";
 import Home from "./pages/Home";
+import HostLogin from "./pages/HostLogin";
+import HostDashboard from "./pages/HostDashboard";
+import HostBookings from "./pages/HostBookings";
+import AddProperty from "./pages/AddProperty";
+import SearchResults from "./pages/SearchResults.jsx";
 
 function App() {
   return (
@@ -65,6 +70,29 @@ function App() {
           path="/property/:id/photos"
           element={<Photos />}
         />
+        <Route
+          path="/host/login"
+          element={<HostLogin />}
+        />
+
+        <Route
+          path="/host"
+          element={<HostDashboard />}
+        />
+
+        <Route
+          path="/host/bookings"
+          element={<HostBookings />}
+        />
+        <Route
+          path="/host/add-property"
+          element={<AddProperty />}
+        />
+        <Route
+          path="/search"
+          element={<SearchResults />}
+        />
+
       </Routes>
     </div>
   );

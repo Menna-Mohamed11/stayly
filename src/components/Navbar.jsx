@@ -102,12 +102,15 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                     </Link>
                 </div>
             
-
+             <Link
+             to={`/host/login`}>
             <span className='hidden md:block whitespace-nowrap shrink-0'> 
                 Become a host </span>
+                </Link>
         <button className="bg-lightgray flex h-10 w-10 items-center justify-center rounded-full transition-all hover:bg-gray-200 cursor-pointer">
              <Globe />
         </button>
+        
           <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -316,6 +319,8 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
 
 
                             {/* Become a host */}
+                            <Link
+                            to={`/host/login`}>
                             <button
                                 onClick={() => setShowMenu(false)}
                                 className="flex w-full items-center justify-between px-5 py-3 text-left hover:bg-gray-50"
@@ -336,6 +341,7 @@ export function Navbar({ onCategoryChange, category, destination, setDestination
                                     🧑‍💼
                                 </div>
                             </button>
+                            </Link>
 
 
                             {/* Divider */}
