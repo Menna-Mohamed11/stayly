@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
+
+
 
 function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -10,9 +12,16 @@ function Wishlist() {
 
     setWishlist(saved);
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
+      <button
+  onClick={() => navigate(-1)}
+  className="text-2xl text-[#717171] py-3"
+>
+  ←
+</button>
       <h1 className="mb-8 text-3xl font-semibold">
         Wishlist
       </h1>

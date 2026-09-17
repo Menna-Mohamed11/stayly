@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../localstorage";
+import { Link } from "react-router-dom";
+import { X } from "lucide-react";
 
 function Login() {
   const navigate = useNavigate();
@@ -43,6 +45,9 @@ function Login() {
   return (
     <div className="min-h-screen bg-[#F7F7F7] flex items-center justify-center px-4">
       <div className="bg-white w-full max-w-md rounded-2xl shadow-sm p-8">
+        
+          <X onClick={() => navigate(-1)}
+  className="flex items-center gap-2 text-[#717171] "></X>
         <h1 className="text-3xl font-bold text-center mb-2">
           Welcome back
         </h1>
@@ -93,6 +98,13 @@ function Login() {
             Log In
           </button>
         </form>
+        <p className="text-center text-[#717171] mt-6">Don't have an account?{" "} 
+          <button
+            onClick={() => navigate("/register")}
+            className="text-[#222222] font-semibold underline"
+          >
+           sign up
+          </button></p>
       </div>
     </div>
   );

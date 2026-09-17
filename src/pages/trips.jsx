@@ -43,7 +43,7 @@ function Trips() {
             <img
               src="src/assets/logo.png"
               alt="Stayly"
-              className="h-12 w-auto object-contain"
+              className="h-22 w-auto object-contain"
             />
           </Link>
 
@@ -71,7 +71,7 @@ function Trips() {
           </div>
         </div>
       </nav>
-
+     
       <main className="max-w-6xl mx-auto px-6 py-10">
         <h1 className="text-3xl font-semibold">
           Your trips
@@ -100,6 +100,7 @@ function Trips() {
           </div>
         ) : (
           <div className="space-y-6">
+            
             {trips.map((trip) => (
               <div
                 key={trip.id}
