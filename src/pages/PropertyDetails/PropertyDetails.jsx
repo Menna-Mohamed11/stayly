@@ -183,7 +183,7 @@ function PropertyDetails() {
 
       <section
         id="photos"
-        className="scroll mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8"
       >
         <div className="flex flex-col gap-4">
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -235,7 +235,7 @@ function PropertyDetails() {
               <img
                 src={property.images[0]}
                 alt={property.title}
-                className="h-102 w-200 object-cover"
+                className="h-102 w-200 "
               />
             </Link>
           </div>
@@ -247,7 +247,7 @@ function PropertyDetails() {
                   <img
                     src={image}
                     alt={`${property.title} ${index + 2}`}
-                    className="h-50 w-100 object-cover"
+                    className="h-50 w-100 "
                   />
                 </Link>
               </div>
@@ -379,7 +379,7 @@ function PropertyDetails() {
                   onSelect={setSelectedDates}
                   numberOfMonths={2}
                   disabled={{ before: new Date() }}
-                  showOutsideDays
+                  
                 />
               </div>
 
@@ -467,7 +467,7 @@ function PropertyDetails() {
                     />
 
                     <button
-                      className="flex justify-end mr-5 py-1 px-2 rounded-lg hover:cursor-pointer transition text-sm text-white bg-black"
+                      className=" mr-5 py-1 px-2 rounded-lg hover:cursor-pointer transition text-sm text-white bg-black"
                       onClick={() => setOpenCalendar(false)}
                     >
                       Close

@@ -264,7 +264,8 @@ export function Navbar({
                             setShowWhen(false);
                             setShowWho(false);
                         }}
-                        className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${showMenu
+                        className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors 
+                            ${showMenu
                             ? "bg-gray-200"
                             : "bg-[#f7f7f7] hover:bg-gray-200"
                             }`}

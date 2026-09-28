@@ -21,15 +21,15 @@ function HostDashboard() {
     return <Navigate to="/host/login" replace />;
   }
 
-  const { profile, statistics, listings, bookings } = hostData;
+  const { profile, listings, bookings } = hostData;
 
-  const hostProperties = listings
+  const hostProperties = listings //property ids
     .map((id) =>
       properties.find((property) => property.id === id)
     )
     .filter(Boolean);
 
-  const totalRevenue = bookings.reduce(
+  const totalRevenue = bookings.reduce(                //returns single value
     (total, booking) => total + booking.amount,
     0
   );
@@ -113,9 +113,9 @@ function HostDashboard() {
             </p>
 
             <p className="mt-1 text-3xl font-semibold">
-              ${totalRevenue.toLocaleString()}
+              ${totalRevenue.toLocaleString()} 
             </p>
-
+            
           </div>
 
           {/* Bookings */}
