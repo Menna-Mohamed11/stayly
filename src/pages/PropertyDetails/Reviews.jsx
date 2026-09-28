@@ -568,7 +568,7 @@ function Reviews({ property }) {
                         </div>
 
 
-                        {/* Amenities */}
+                        
                         <div className="grid grid-cols-1 gap-x-12 gap-y-3 ">
 
                             <p >Reviews from past guests help our community learn more about each home.
