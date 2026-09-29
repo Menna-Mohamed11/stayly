@@ -35,6 +35,9 @@ export class Property {
   @Column({ default: 1 })
   bathrooms: number;
 
+  @Column()
+  propertyType: string;
+
   @Column({ nullable: true })
   image: string;
 }
