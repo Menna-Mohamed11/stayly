@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Navbar } from "../components/Navbarp";
 
@@ -6,21 +6,47 @@ import FilterBar from "../components/FilterBar";
 import HotelList from "../components/HotelList";
 import Map from "../components/Map";
 
-import properties from "./data/properties";
+import { getProperties } from "../api/properties";
+
 function SearchResults() {
+    const [properties, setProperties] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     const [searchValue, setSearchValue] = useState("");
-
     const [guests, setGuests] = useState(0);
-
     const [activeFilters, setActiveFilters] = useState([]);
-
     const [includeFees, setIncludeFees] = useState(false);
-
     const [sort, setSort] = useState("recommended");
-
     const [activeHotel, setActiveHotel] = useState(null);
-
     const [favorites, setFavorites] = useState([]);
+
+    // =========================
+    // GET PROPERTIES FROM BACKEND
+    // =========================
+
+    useEffect(() => {
+        const loadProperties = async () => {
+            try {
+                setLoading(true);
+
+                const data = await getProperties();
+
+                setProperties(data);
+            } catch (err) {
+                console.error("Failed to load properties:", err);
+                setError("Could not load properties.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadProperties();
+    }, []);
+
+    // =========================
+    // FAVORITES
+    // =========================
 
     const toggleFavorite = (propertyId) => {
         setFavorites((current) => {
@@ -32,30 +58,26 @@ function SearchResults() {
         });
     };
 
+    // =========================
+    // FILTER + SORT
+    // =========================
+
     const filteredHotels = useMemo(() => {
-        // Use your REAL properties data
         let result = properties.map((property) => ({
             ...property,
 
-            // Keep compatibility with your existing HotelList
             type: property.type || "Home",
 
-            // If amenities don't exist, use an empty array
             amenities: property.amenities || [],
 
-            // Keep guestFavorite working
             guestFavorite: property.guestFavorite || false,
 
-            // Price displayed in the cards
             displayPrice: includeFees
                 ? Math.round(property.price * 1.1)
                 : property.price,
         }));
 
-        // =========================
         // SEARCH
-        // =========================
-
         const query = searchValue.trim().toLowerCase();
 
         if (query) {
@@ -68,32 +90,23 @@ function SearchResults() {
             });
         }
 
-        // =========================
         // GUESTS
-        // =========================
-
         if (guests > 0) {
             result = result.filter((property) => {
                 return Number(property.guests || 0) >= guests;
             });
         }
 
-        // =========================
-        // FILTERS
-        // =========================
-
+        // AMENITIES
         if (activeFilters.length > 0) {
             result = result.filter((property) => {
-                return activeFilters.every((filter) => {
-                    return property.amenities.includes(filter);
-                });
+                return activeFilters.every((filter) =>
+                    property.amenities.includes(filter)
+                );
             });
         }
 
-        // =========================
         // SORT
-        // =========================
-
         if (sort === "price-low") {
             result.sort(
                 (a, b) => a.displayPrice - b.displayPrice
@@ -130,6 +143,7 @@ function SearchResults() {
 
         return result;
     }, [
+        properties,
         searchValue,
         guests,
         activeFilters,
@@ -137,12 +151,38 @@ function SearchResults() {
         includeFees,
     ]);
 
+    // =========================
+    // LOADING
+    // =========================
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <p>Loading properties...</p>
+            </div>
+        );
+    }
+
+    // =========================
+    // ERROR
+    // =========================
+
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <p>{error}</p>
+            </div>
+        );
+    }
+
+    // =========================
+    // PAGE
+    // =========================
+
     return (
         <div className="min-h-screen bg-white text-[#222222]">
 
             <Navbar favoritesCount={favorites.length} />
-
-           
 
             <FilterBar
                 activeFilters={activeFilters}
