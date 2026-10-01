@@ -1,39 +1,24 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule, ObserveInstrument } from './app.module.js';
+import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
-    instrument: ObserveInstrument,
-  });
+  const app = await NestFactory.create(AppModule);
 
-  // Allow your React frontend to connect to the backend
+
+  
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.enableCors();
 
   const config = new DocumentBuilder()
-    .setTitle('Sayly API')
-    .setDescription('this is the backend API for our project')
+    .setTitle('Stayly API')
     .setVersion('1.0')
-    .addBearerAuth(
-      {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
-        name: 'JWT',
-        description: 'enter jwt token',
-        in: 'header',
-      },
-      'JWT-auth',
-    )
+    .addBearerAuth()
     .build();
-
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
   await app.listen(3000);
-
-  console.log('server is running on: http://localhost:3000');
-  console.log('swagger is available on: http://localhost:3000/api');
 }
-
 bootstrap();
