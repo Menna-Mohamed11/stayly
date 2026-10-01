@@ -1,43 +1,74 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { text } from 'stream/consumers';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, JoinColumn, JoinTable ,type Relation} from 'typeorm'
+import { Host } from '../../hosts/entities/host.entity.js';
+import { Property_image } from '../../property-images/entities/property-image.entity.js';
+import { Amenity } from '../../amenities/entities/amenity.entity.js';
+import { Location } from '../../locations/entities/location.entity.js';
+import { Review } from '../../reviews/entities/review.entity.js';
 
 @Entity('properties')
 export class Property {
-  @PrimaryGeneratedColumn()
-  id: number;
+    @PrimaryGeneratedColumn({ name: 'property_id' })
+    propertyId: number;
 
-  @Column()
-  title: string;
+    @Column({ name: 'host_id' })
+    hostId: number;
 
-  @Column({ type: 'text', nullable: true })
-  description: string;
+    @Column({ length: 100 })
+    title: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2 })
-  pricePerNight: number;
+    @Column({ type: 'text', nullable: true })
+    description: string;
 
-  @Column({ type: 'decimal', precision: 3, scale: 2, default: 0 })
-  rating: number;
+    @Column({ name: 'pricepernight', type: 'numeric', precision: 10, scale: 2 })
+    pricePerNight: number;
 
-  @Column()
-  city: string;
+    @Column({default: 1 })
+    guests: number;
 
-  @Column()
-  country: string;
+    @Column({default: 1 })
+    bedrooms: number;
 
-  @Column({ default: 1 })
-  maxGuests: number;
+    @Column({default: 1 })
+    beds: number;
 
-  @Column({ default: 1 })
-  bedrooms: number;
+    @Column({default: 1} )
+    bathrooms: number;
 
-  @Column({ default: 1 })
-  beds: number;
+    @Column({ name: 'propertytype' })
+    propertyType: string;
 
-  @Column({ default: 1 })
-  bathrooms: number;
+    @Column({ name: 'created_at' })
+    createdAt: Date;
 
-  @Column()
-  propertyType: string;
+    @Column({ name: 'updated_at' })
+    updatedAt: Date;
 
-  @Column({ nullable: true })
-  image: string;
+    @ManyToOne(() => Host, (host) => host.properties)
+    @JoinColumn({ name: 'host_id' })
+    host: Relation<Host>;
+
+    @OneToMany(() => Property_image, (property_image) => property_image.property)
+    images: Property_image[];
+
+    @ManyToMany(() => Amenity, (amenity) => amenity.properties)
+    @JoinTable({
+        name: 'property_amenities',
+        joinColumn: {
+            name: 'property_id',
+            referencedColumnName: 'propertyId',
+        },
+        inverseJoinColumn: {
+            name: 'amenity_id',
+            referencedColumnName: 'amenityId',
+        },
+    })
+    amenities: Amenity[];
+
+    @OneToOne(()=> Location,(location)=> location.property)
+    location :Relation<Location>;
+
+    @OneToMany(()=>Review,(review)=>review.property)
+    reviews:Review[];
+
 }

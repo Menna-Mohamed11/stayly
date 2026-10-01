@@ -1,37 +1,42 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import {Entity, PrimaryGeneratedColumn,Column,JoinColumn,OneToMany,OneToOne,type Relation} from 'typeorm'
+import { Host } from '../../hosts/entities/host.entity.js';
+import { Review } from '../../reviews/entities/review.entity.js';
 
-@Entity({ name: 'users' })
-export class User {
-  @PrimaryGeneratedColumn({ name: 'user_id' })
-  id: number;
+@Entity('users')
+export class User{
+    @PrimaryGeneratedColumn({name:'user_id'})
+    userId:number;
 
-  @Column({ name: 'first_name', type: 'varchar', length: 100 })
-  firstName: string;
+    @Column({name:'first_name',length:100})
+    firstName:string;
 
-  @Column({ name: 'last_name', type: 'varchar', length: 100 })
-  lastName: string;
+    @Column({name:'last_name',length:100})
+    lastName:string;
 
-  @Column({ type: 'varchar', length: 255, unique: true })
-  email: string;
+    @Column({unique:true,length:255})
+    email:string;
 
-  @Column({ type: 'varchar', length: 255 })
-  password: string;
+    @Column({length:255})
+    password:string;
 
-  @Column({ type: 'varchar', length: 30, nullable: true })
-  phone: string | null;
+    @Column({ length: 30, nullable: true ,type:'varchar'})
+    phone: string|null;
 
-  @Column({ type: 'varchar', length: 20, default: 'USER' })
-  role: string;
+    @Column({length: 20,default: 'USER',})
+    role: string;
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
-  createdAt: Date;
+    @Column({ name: 'created_at' })
+    createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
-  updatedAt: Date;
+    @Column({ name: 'updated_at' })
+    updatedAt: Date;
+
+    // One User can have one Host profile
+    @OneToOne(() => Host, (host) => host.user)
+    host: Relation<Host>;
+
+
+   // One User can write many Reviews
+   @OneToMany(() => Review, (review) => review.user)
+   reviews: Relation<Review>[];
 }

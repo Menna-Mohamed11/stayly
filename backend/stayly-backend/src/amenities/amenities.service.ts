@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Amenity } from './entities/amenity.entity';
+import { Amenity } from './entities/amenity.entity.js';
 
 @Injectable()
 export class AmenitiesService {
-  constructor(
+    constructor(
     @InjectRepository(Amenity)
     private readonly amenityRepository: Repository<Amenity>,
   ) {}
@@ -15,9 +15,9 @@ export class AmenitiesService {
     return this.amenityRepository.find();
   }
 
-  async findOne(id: number): Promise<Amenity | null> {
+  async findOne(amenityId: number): Promise<Amenity | null> {
     return this.amenityRepository.findOne({
-      where: { id },
+      where: {amenityId},
     });
   }
 }

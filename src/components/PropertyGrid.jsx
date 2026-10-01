@@ -1,76 +1,62 @@
 import { CardProperties } from "../data/CardProperties";
 import { PropertyCard } from "./PropertyCard";
 import { MoveRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { findAll } from "../api/property";
+import properties from "../pages/Data/properties";
 
-export function PropertyGrid({ category, destination, searchSubmitted }) {
+export function PropertyGrid() {
+    const [properties, setProperties] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
-    const filteredCards = CardProperties.filter((property) => {
+    useEffect(() => {
+        async function fetchProperties() {
+            try {
+                const data = await findAll();
 
-        const matchesCategory =
-            category === "All" ||
-            property.category === category;
+                setProperties(data);
+            } catch (error) {
+                console.error(error);
+                setError("Failed to load properties.");
+            } finally {
+                setLoading(false);
+            }
+        }
 
-        const matchesDestination =
-            !searchSubmitted ||
-            property.location
-                .toLowerCase()
-                .includes(destination.toLowerCase());
+        fetchProperties();
+    }, []);
 
-        return matchesCategory && matchesDestination;
-    });
+    if (loading) {
+        return (
+            <p className="text-center">
+                Loading properties...
+            </p>
+        );
+    }
 
-    const sections = [
-        "Popular homes",
-        "Beach getaways",
-        "Mountain getaways",
-        "Nature getaways",
-
-        "Popular experiences",
-        "Art & culture",
-        "Outdoor adventures",
-        "Food & drink",
-
-        "Travel services",
-        "Home services",
-        "Wellness"
-    ];
+    if (error) {
+        return (
+            <p className="text-center text-red-500">
+                {error}
+            </p>
+        );
+    }
 
     return (
         <div className="px-10 mt-20">
 
-            {sections.map((section) => {
-
-                const sectionCards = filteredCards.filter(
-                    (property) => property.section === section
-                );
-
-                if (sectionCards.length === 0) return null;
-
-                return (
-                    <section key={section} className="mb-12">
-
-                        <div className="flex items-center gap-x-2 mb-5">
-                            <h2 className="text-2xl font-bold">
-                                {section}
-                            </h2>
-
-                            <button className="bg-lightgray rounded-full h-9 w-9 flex items-center justify-center transition-all duration-200 hover:scale-95 cursor-pointer hover:brightness-90">
-                                <MoveRight size={20} />
-                            </button>
-                        </div>
-
+            
                         <div className="grid gap-x-5 gap-y-10 grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-                            {sectionCards.map((property) => (
+                            {properties.map((property) => (
                                 <PropertyCard
-                                    key={property.id}
+                                    key={property.propertyId}
                                     property={property}
                                 />
                             ))}
                         </div>
 
-                    </section>
-                );
-            })}
+              
 
         </div>
     );

@@ -1,10 +1,14 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Entity , PrimaryGeneratedColumn , Column , ManyToMany} from 'typeorm'
+import { Property } from '../../properties/entities/property.entity.js'
 
 @Entity('amenities')
-export class Amenity {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class Amenity{
+    @PrimaryGeneratedColumn({name:'amenity_id'})
+    amenityId:number;
 
-  @Column({ unique: true })
-  name: string;
+    @Column({name:'amenity_name',unique:true})
+    amenityName:string;
+
+    @ManyToMany(()=> Property,(property)=> property.amenities)
+    properties:Property[];
 }

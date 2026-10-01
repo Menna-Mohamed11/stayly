@@ -5,9 +5,9 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Host } from './entities/host.entity';
-import { User } from '../users/entities/user.entity';
-import { CreateHostDto } from './dto/create-host.dto';
+import { Host } from './entities/host.entity.js';
+import { User } from '../users/entities/user.entity.js';
+import { CreateHostDto } from './dto/create-host.dto.js';
 
 @Injectable()
 export class HostsService {
@@ -32,7 +32,7 @@ export class HostsService {
       }),
     );
 
-    await this.usersRepository.update({ id: userId }, { role: 'HOST' });
+    await this.usersRepository.update({ userId }, { role: 'HOST' });
 
     return host;
   }

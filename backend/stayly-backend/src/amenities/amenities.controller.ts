@@ -5,7 +5,7 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 
-import { AmenitiesService } from './amenities.service';
+import { AmenitiesService } from './amenities.service.js';
 
 @Controller('amenities')
 export class AmenitiesController {

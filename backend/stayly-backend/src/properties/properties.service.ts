@@ -1,22 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable ,NotFoundException} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-
-import { Property } from './entities/property.entity';
+import { Property } from './entities/property.entity.js';
 import { SearchPropertyDto } from './dto/search-property.dto';
 
 @Injectable()
 export class PropertiesService {
-  constructor(
-    @InjectRepository(Property)
-    private readonly propertyRepository: Repository<Property>,
-  ) {}
+    constructor(@InjectRepository(Property)
+    private readonly PropertyRepository:Repository<Property>){}
 
-  async findAll(): Promise<Property[]> {
-    return this.propertyRepository.find();
-  }
+    async findAll(){
+        return this.PropertyRepository.find({relations:{host:true, images:true,amenities:true,location:true}})
+    }
 
-  async search(searchDto: SearchPropertyDto): Promise<Property[]> {
+    async getPropertyById(id:number){
+        const property = await this.PropertyRepository.findOne({where:{propertyId:id},
+        relations:{host:true, images:true,amenities:true,location:true}});
+        if(!property){
+            throw new NotFoundException(`property with id ${id} not found`);
+        }
+        return property;
+    }
+    async search(searchDto: SearchPropertyDto): Promise<Property[]> {
     const {
       city,
       guests,
@@ -26,7 +31,7 @@ export class PropertiesService {
       propertyType,
     } = searchDto;
 
-    const query = this.propertyRepository
+    const query = this.PropertyRepository
       .createQueryBuilder('property');
 
     // Filter by city
@@ -80,9 +85,5 @@ export class PropertiesService {
     return query.getMany();
   }
 
-  async findOne(id: number): Promise<Property | null> {
-    return this.propertyRepository.findOne({
-      where: { id },
-    });
-  }
+    
 }

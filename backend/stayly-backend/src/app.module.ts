@@ -1,32 +1,53 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { HostsModule } from './hosts/hosts.module';
-import { BookingsModule } from './bookings/bookings.module';
-import { WishlistModule } from './wishlist/wishlist.module';
+import { createObserveModule } from '@nestjs/observe';
+import { AuthModule } from './auth/auth.module.js';
+import { UsersModule } from './users/users.module.js';
+import { HostsModule } from './hosts/hosts.module.js';
+import { PropertiesModule } from './properties/properties.module.js';
+import { PropertyImagesModule } from './property-images/property-images.module.js';
+import { AmenitiesModule } from './amenities/amenities.module.js';
+import { PropertyAmenitiesModule } from './property-amenities/property-amenities.module.js';
+import { LocationsModule } from './locations/locations.module.js';
+import { BookingsModule } from './bookings/bookings.module.js';
+import { PaymentsModule } from './payments/payments.module.js';
+import { ReviewsModule } from './reviews/reviews.module.js';
+import { WishlistModule } from './wishlist/wishlist.module.js';
+import { TypeOrmModule} from '@nestjs/typeorm';
+import {ConfigModule} from '@nestjs/config';
+
+
+export const { ObserveModule, ObserveInstrument } = createObserveModule();
+
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'postgres',
-        host: config.get<string>('DB_HOST'),
-        port: Number(config.get<string>('DB_PORT')) || 5432,
-        username: config.get<string>('DB_USERNAME'),
-        password: config.get<string>('DB_PASSWORD'),
-        database: config.get<string>('DB_DATABASE'),
-        autoLoadEntities: true,
-        synchronize: false,
-      }),
+    ConfigModule.forRoot({
+      isGlobal:true,
+      
+    }),
+    TypeOrmModule.forRoot({
+      type:'postgres',
+      host:process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || '5432'),
+      username: process.env.DB_USERNAME,
+      password:String(process.env.DB_PASSWORD),
+      database:process.env.DB_DATABASE,
+      autoLoadEntities:true,
+      synchronize:false,
+      
     }),
     AuthModule,
     UsersModule,
     HostsModule,
+    PropertiesModule,
+    PropertyImagesModule,
+    AmenitiesModule,
+    PropertyAmenitiesModule,
+    LocationsModule,
     BookingsModule,
+    PaymentsModule,
+    ReviewsModule,
     WishlistModule,
   ],
+  
 })
 export class AppModule {}

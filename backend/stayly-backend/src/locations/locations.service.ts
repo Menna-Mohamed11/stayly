@@ -17,7 +17,7 @@ export class LocationsService {
 
   async findByPropertyId(propertyId: number) {
     const location = await this.locationRepository.findOne({
-      where: { id: propertyId },
+      where: {  propertyId },
     });
 
     if (!location) {
@@ -32,12 +32,12 @@ export class LocationsService {
     data: Partial<Location>,
   ) {
     let location = await this.locationRepository.findOne({
-      where: { id: propertyId },
+      where: {  propertyId },
     });
 
     if (!location) {
       location = this.locationRepository.create({
-        id: propertyId,
+        propertyId,
         ...data,
       });
     } else {
