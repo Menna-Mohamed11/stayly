@@ -1,15 +1,17 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule, ObserveInstrument } from './app.module.js';
+import { AppModule } from './app.module.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
+  app.enableCors();
   app.enableCors({
     origin: 'http://localhost:5173',
   });
 
   const config = new DocumentBuilder()
-    .setTitle('Sayly API')
+    .setTitle('Stayly API')
     .setDescription('this is the backend API for our project')
     .setVersion('1.0')
     .addBearerAuth(
@@ -30,8 +32,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   await app.listen(3000);
-
   console.log('server is running on: http://localhost:3000');
   console.log('swagger is available on: http://localhost:3000/api');
 }
-await bootstrap();
+bootstrap();

@@ -19,8 +19,8 @@ export class User{
     @Column({length:255})
     password:string;
 
-    @Column({ length: 30, nullable: true })
-    phone: string;
+    @Column({ length: 30, nullable: true ,type:'varchar'})
+    phone: string|null;
 
     @Column({length: 20,default: 'USER',})
     role: string;

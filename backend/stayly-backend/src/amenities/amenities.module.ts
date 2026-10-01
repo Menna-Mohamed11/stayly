@@ -7,6 +7,6 @@ import { Amenity } from './entities/amenity.entity.js';
 @Module({
   imports:[TypeOrmModule.forFeature([Amenity])],
   providers: [AmenitiesService],
-  controllers: [AmenitiesController]
+  exports: [AmenitiesService],
 })
 export class AmenitiesModule {}

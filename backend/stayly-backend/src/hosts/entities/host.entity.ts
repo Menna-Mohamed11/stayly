@@ -10,18 +10,19 @@ export class Host{
     @Column({name:'user_id'})
     userId:number;
 
-    @Column({type:'text'})
-    bio:string;
+    @Column({type:'text',nullable:true})
+    bio:string|null;
 
-    @Column({name:'profile_image', nullable:true})
-    profileImage:string;
+    @Column({name:'profile_image',type: 'varchar', nullable:true})
+    profileImage:string|null;
 
-    @Column({name:'host_since'})
+    @Column({name:'host_since',type: 'timestamp'})
     hostSince:Date;
 
     @OneToMany(()=> Property,(property) => property.host)
     properties:Property[];
 
     @OneToOne(()=> User,(user)=>user.host)
+    @JoinColumn({ name: 'user_id' })
     user:Relation<User>;
 }

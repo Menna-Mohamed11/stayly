@@ -2,6 +2,7 @@ import { Injectable ,NotFoundException} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Property } from './entities/property.entity.js';
+import { SearchPropertyDto } from './dto/search-property.dto';
 
 @Injectable()
 export class PropertiesService {
@@ -20,6 +21,69 @@ export class PropertiesService {
         }
         return property;
     }
+    async search(searchDto: SearchPropertyDto): Promise<Property[]> {
+    const {
+      city,
+      guests,
+      minPrice,
+      maxPrice,
+      bedrooms,
+      propertyType,
+    } = searchDto;
+
+    const query = this.PropertyRepository
+      .createQueryBuilder('property');
+
+    // Filter by city
+    if (city) {
+      query.andWhere(
+        'LOWER(property.city) = LOWER(:city)',
+        { city },
+      );
+    }
+
+    // Filter by number of guests
+    if (guests !== undefined) {
+      query.andWhere(
+        'property.maxGuests >= :guests',
+        { guests },
+      );
+    }
+
+    // Filter by minimum price
+    if (minPrice !== undefined) {
+      query.andWhere(
+        'property.pricePerNight >= :minPrice',
+        { minPrice },
+      );
+    }
+
+    // Filter by maximum price
+    if (maxPrice !== undefined) {
+      query.andWhere(
+        'property.pricePerNight <= :maxPrice',
+        { maxPrice },
+      );
+    }
+
+    // Filter by number of bedrooms
+    if (bedrooms !== undefined) {
+      query.andWhere(
+        'property.bedrooms >= :bedrooms',
+        { bedrooms },
+      );
+    }
+
+    // Filter by property type
+    if (propertyType) {
+      query.andWhere(
+        'LOWER(property.propertyType) = LOWER(:propertyType)',
+        { propertyType },
+      );
+    }
+
+    return query.getMany();
+  }
 
     
 }

@@ -23,16 +23,16 @@ export class Property {
     @Column({ name: 'pricepernight', type: 'numeric', precision: 10, scale: 2 })
     pricePerNight: number;
 
-    @Column()
+    @Column({default: 1 })
     guests: number;
 
-    @Column()
+    @Column({default: 1 })
     bedrooms: number;
 
-    @Column()
+    @Column({default: 1 })
     beds: number;
 
-    @Column()
+    @Column({default: 1} )
     bathrooms: number;
 
     @Column({ name: 'propertytype' })
