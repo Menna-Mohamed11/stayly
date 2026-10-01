@@ -21,7 +21,7 @@ export class Property {
     description: string;
 
     @Column({ name: 'pricepernight', type: 'numeric', precision: 10, scale: 2 })
-    pricePerNight: number;
+    price: number;
 
     @Column({default: 1 })
     guests: number;

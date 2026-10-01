@@ -57,7 +57,7 @@ function App() {
         />
 
         <Route
-          path="/"
+          path="/home"
           element={<Home />}
         />
 
