@@ -8,6 +8,7 @@ import Reviews from "./Reviews";
 import Location from "./Location";
 import { Footer } from "../../components/Footer";
 import { getCurrentUser } from "../../localstorage";
+import { getPropertyById } from "../../api/property";
 import {
   Wifi,
   Wind,
@@ -36,6 +37,10 @@ function PropertyDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const [property, setProperty] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
   const [showAmenities, setShowAmenities] = useState(false);
   const [guests, setGuests] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -47,6 +52,23 @@ function PropertyDetails() {
 
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
+
+  useEffect(() => {
+    async function fetchProperty() {
+      try {
+        const data = await getPropertyById(id);
+
+        setProperty(data);
+      } catch (error) {
+        console.error(error);
+        setError("Failed to load property.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProperty();
+  }, [id]);
 
 
   const amenityIcons = {
@@ -74,9 +96,7 @@ function PropertyDetails() {
     "Bathroom": Bath,
   };
 
-  const property = properties.find(
-    (property) => property.id === Number(id)
-  );
+  
 
   useEffect(() => {
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -114,6 +134,22 @@ function PropertyDetails() {
     );
   };
 
+  if (loading) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <p className="text-lg">Loading property...</p>
+    </div>
+  );
+}
+
+if (error) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <p className="text-lg text-red-500">{error}</p>
+    </div>
+  );
+}
+
   if (!property) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
@@ -150,9 +186,9 @@ function PropertyDetails() {
   const nights =
     selectedDates.from && selectedDates.to
       ? Math.ceil(
-          (selectedDates.to - selectedDates.from) /
-            (1000 * 60 * 60 * 24)
-        )
+        (selectedDates.to - selectedDates.from) /
+        (1000 * 60 * 60 * 24)
+      )
       : 0;
 
   const goToCheckout = () => {
@@ -174,12 +210,12 @@ function PropertyDetails() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Navbar
-      destination={destination}
-    setDestination={setDestination}
-    date={date}
-    setDate={setDate}
-    guests={guests}
-    setGuests={setGuests} />
+        destination={destination}
+        setDestination={setDestination}
+        date={date}
+        setDate={setDate}
+        guests={guests}
+        setGuests={setGuests} />
 
       <section
         id="photos"
@@ -379,7 +415,7 @@ function PropertyDetails() {
                   onSelect={setSelectedDates}
                   numberOfMonths={2}
                   disabled={{ before: new Date() }}
-                  
+
                 />
               </div>
 
@@ -407,9 +443,8 @@ function PropertyDetails() {
 
                 <span className="text-gray-600">
                   {nights > 0
-                    ? `for ${nights} ${
-                        nights === 1 ? "night" : "nights"
-                      }`
+                    ? `for ${nights} ${nights === 1 ? "night" : "nights"
+                    }`
                     : "night"}
                 </span>
               </div>
